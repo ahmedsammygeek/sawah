@@ -8,4 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class TopicTag extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['tag_id' , 'user_id' ];
+
+    public function tag()
+    {
+        return $this->belongsTo(Tag::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function topic()
+    {
+        return $this->belongsTo(Topic::class);
+    }
 }

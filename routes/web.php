@@ -15,6 +15,7 @@ use App\Http\Controllers\Board\LoginController;
 use App\Http\Controllers\Board\BoardController;
 use App\Http\Controllers\Board\AreaController;
 use App\Http\Controllers\Board\TagController;
+use App\Http\Controllers\Board\TopicController;
 
 
 Route::get('test' , function(){
@@ -40,8 +41,6 @@ Route::group(
 	});
 
 
-
-
 Route::get('Board/login' , [LoginController::class , 'form' ] )->name('board.login.form');
 Route::post('Board/login' , [LoginController::class , 'login' ] )->name('board.login.post');
 
@@ -52,7 +51,8 @@ Route::group(['prefix' => 'Board' , 'as' => 'board.' , 'middleware' => 'admin' ]
 	Route::resource('services', ServiceController::class ); // done
 	Route::resource('areas', AreaController::class ); // done
 	Route::resource('reviews', ReviewController::class ); // done
-	Route::resource('tags', TagController::class ); 
+	Route::resource('tags', TagController::class );  // done
+	Route::resource('topics', TopicController::class ); 
 
 	Route::resource('offers', OfferController::class );
 	Route::resource('products', ProductController::class );
