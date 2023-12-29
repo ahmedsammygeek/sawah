@@ -17,6 +17,7 @@ use App\Http\Controllers\Board\AreaController;
 use App\Http\Controllers\Board\TagController;
 use App\Http\Controllers\Board\TopicController;
 use App\Http\Controllers\Board\GoalController;
+use App\Http\Controllers\Board\CategoryController;
 
 Route::get('test' , function(){
 
@@ -54,6 +55,7 @@ Route::group(['prefix' => 'Board' , 'as' => 'board.' , 'middleware' => 'admin' ]
 	Route::resource('tags', TagController::class );  // done
 	Route::resource('topics', TopicController::class );  // done
 	Route::resource('goals', GoalController::class );  // done
+	Route::resource('categories', CategoryController::class ); 
 
 	Route::resource('offers', OfferController::class );
 	Route::resource('products', ProductController::class );
