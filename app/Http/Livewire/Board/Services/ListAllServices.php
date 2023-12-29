@@ -20,7 +20,7 @@ class ListAllServices extends Component
 
     public function render()
     {
-        $services = Service::with('user')->get();
+        $services = Service::with('user')->latest()->get();
         return view('livewire.board.services.list-all-services' , compact('services'));
     }
 }

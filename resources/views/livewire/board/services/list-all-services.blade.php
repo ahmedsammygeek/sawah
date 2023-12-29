@@ -5,12 +5,9 @@
                 <thead>
                     <tr>
                         <th> # </th>
-                        <th>العنوان بالعربيه</th>
-                        <th>العنوان بالانجليزيه</th>
-                        <th>تاريخ الاضافه</th>
-                        <th>تم الاضافه بواسطه</th>
-                        <th>حاله الخدمه</th>
-
+                        <th> صوره الخدمه </th>
+                        <th>العنوان </th>
+                        <th> العرض داخل المقع </th>
                         <th>خيارات</th>
                     </tr>
                 </thead>
@@ -21,17 +18,19 @@
                     @foreach ($services as $service)
                     <tr>
                         <td> {{ $i++ }} </td>
+                        <td>
+                            <a class="avatar" data-fslightbox="gallery" href="{{ Storage::url('services/'.$service->image) }}">
+                                <img  src="{{ Storage::url('services/'.$service->image) }}" alt="">
+                            </a>
+                        </td>
                         <td> {{ $service->getTranslation('name' , 'ar') }} </td>
-                        <td> {{ $service->getTranslation('name' , 'en') }} </td>
-                        <td> {{ $service->created_at }} <span class="text-muted">{{ $service->created_at->diffForHumans() }}</span> </td>
-                        <td> {{ $service->user?->name }} </td>
                         <td>
                             @switch($service->is_active)
                             @case(1)
-                            <span class="badge bg-success"> فعال </span>
+                            <span class="badge bg-success"> نعم </span>
                             @break
                             @case(0)
-                            <span class="badge bg-danger"> غير فعال </span>
+                            <span class="badge bg-danger"> لا </span>
                             @break
                             @endswitch
                         </td>
@@ -84,6 +83,7 @@
 </div>
 
 @section('scripts')
+<script src="{{ asset('board_assets/dist/libs/fslightbox/index.js?1684106062') }}" defer></script>
 <script>
     $(function() {
 

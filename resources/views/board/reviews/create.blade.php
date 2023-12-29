@@ -43,7 +43,7 @@
 					</div>
 					<div class="card-body">
 						<div class="mb-3">
-							<label class="form-label required"> صوره المنتج </label>
+							<label class="form-label required"> صوره المستخدم </label>
 							<div>
 								<input type="file" class="form-control @error('image') is-invalid @enderror " name='image'  >
 								@error('image')
@@ -53,7 +53,7 @@
 						</div>
 
 						<div class="mb-3">
-							<label class="form-label required"> تقييم المنتج </label>
+							<label class="form-label required"> التقييم  </label>
 							<div>
 								<select name="rate" class='form-control form-select' id="">
 									<option value="1">1</option>
@@ -90,21 +90,11 @@
 								@enderror
 							</div>
 						</div>
-
-						<div class="mb-3">
-							<label class="form-label required"> التعليق بالانجليزيه </label>
-							<div>
-								<input type="text" class="form-control @error('content_en') is-invalid @enderror " name='content_en' value="{{ old('content_en') }}" >
-								@error('content_en')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
 						<div class="mb-3">
 							<label class="form-label"> خصائص </label>
 							<div>
 								<label class="form-check">
-									<input class="form-check-input" name='active' type="checkbox" checked>
+									<input class="form-check-input" name='is_active' type="checkbox" checked>
 									<span class="form-check-label"> السماح بالعرض </span>
 								</label>
 							</div>

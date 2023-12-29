@@ -23,12 +23,10 @@ class StoreServiceRequest extends FormRequest
     {
         return [
             'name_ar' => 'required' , 
-            'name_en' => 'required' , 
             'subtitle_ar' => 'required' , 
-            'subtitle_en' => 'required' , 
             'content_ar' => 'required' , 
-            'content_en' => 'required' , 
-            'active' => 'nullable',
+            'image' => 'required|image' , 
+            'is_active' => 'nullable',
         ];
     }
 }

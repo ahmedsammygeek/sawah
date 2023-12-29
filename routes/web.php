@@ -48,12 +48,13 @@ Route::group(['prefix' => 'Board' , 'as' => 'board.' , 'middleware' => 'admin' ]
 	Route::get('/' , [BoardController::class , 'index'] )->name('index'); // done
 	Route::get('/logout' , [BoardController::class , 'logout'] )->name('logout'); // done
 	Route::resource('users', UserController::class ); // done
+	Route::resource('services', ServiceController::class ); // done
+	Route::resource('areas', AreaController::class ); // done
+	Route::resource('reviews', ReviewController::class );
+
 	Route::resource('offers', OfferController::class );
 	Route::resource('products', ProductController::class );
-	Route::resource('services', ServiceController::class );
 	Route::resource('projects', ProjectController::class );
-	Route::resource('reviews', ReviewController::class );
-	Route::resource('areas', AreaController::class ); // done
 	Route::get('settings/edit'  , [SettingsController::class , 'edit'] )->name('settings.edit');
 	Route::patch('settings'  , [SettingsController::class , 'update'] )->name('settings.update');
 	Route::get('terms/edit'  , [TermsController::class , 'edit'] )->name('terms.edit');

@@ -37,13 +37,24 @@
 	<div class="container-xl">
 		<div class="row row-deck row-cards">
 			<div class="col-md-12">
-				<form class="card" method='POST' action='{{ route('board.services.update' , $service) }}' >
+				<form class="card" method='POST' action='{{ route('board.services.update' , $service) }}' enctype="multipart/form-data" >
 					@csrf
 					@method('PATCH')
 					<div class="card-header bg-primary">
 						<h3 class="card-title text-white"> إضافه عرض جديد </h3>
 					</div>
 					<div class="card-body">
+
+						<div class="mb-3">
+							<label class="form-label required"> صوره الخدمه </label>
+							<div>
+								<input type="file" class="form-control @error('image') is-invalid @enderror " name='image' >
+								@error('image')
+								<small class="form-hint text-danger"> {{ $message }} </small>
+								@enderror
+							</div>
+						</div>
+
 						<div class="mb-3">
 							<label class="form-label required"> العنوان بالعربيه </label>
 							<div>
@@ -54,15 +65,7 @@
 							</div>
 						</div>
 
-						<div class="mb-3">
-							<label class="form-label required"> العنوان بالانجليزيه </label>
-							<div>
-								<input type="text" class="form-control @error('name_en') is-invalid @enderror " name='name_en' value="{{ $service->getTranslation('name' , 'en') }}" >
-								@error('name_en')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
+
 
 						<div class="mb-3">
 							<label class="form-label required"> المحتوى البسيط بالعربيه </label>
@@ -74,15 +77,7 @@
 							</div>
 						</div>
 
-						<div class="mb-3">
-							<label class="form-label required"> المحتوى البسيط بالانجليزيه </label>
-							<div>
-								<input type="text" class="form-control @error('subtitle_en') is-invalid @enderror " name='subtitle_en' value="{{ $service->getTranslation('subtitle' , 'en') }}" >
-								@error('subtitle_en')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
+
 
 						<div class="mb-3">
 							<label class="form-label required"> المحتوى التفصيلى بالعربيه </label>
@@ -95,25 +90,12 @@
 						</div>
 
 
-						<div class="mb-3">
-							<label class="form-label required"> المحتوى التفصيلى بالانجليزيه </label>
-							<div>
-								<textarea  class="form-control @error('content_en') is-invalid @enderror " name='content_en' id="tinymce-mytextarea" cols="30" rows="10"> {{ $service->getTranslation('content'  , 'en' ) }} </textarea>
-								@error('content_en')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
-
-
-
-
 
 						<div class="mb-3">
 							<label class="form-label"> خصائص </label>
 							<div>
 								<label class="form-check">
-									<input class="form-check-input" name='active' type="checkbox" {{ $service->is_active == 1 ? 'checked' : '' }}>
+									<input class="form-check-input" name='is_active' type="checkbox" {{ $service->is_active == 1 ? 'checked' : '' }}>
 									<span class="form-check-label"> السماح بالعرض </span>
 								</label>
 							</div>

@@ -23,12 +23,10 @@ class UpdateServiceRequest extends FormRequest
     {
         return [
             'name_ar' => 'required' , 
-            'name_en' => 'required' , 
             'subtitle_ar' => 'required' , 
-            'subtitle_en' => 'required' , 
             'content_ar' => 'required' , 
-            'content_en' => 'required' , 
-            'active' => 'nullable',
+            'is_active' => 'nullable',
+            'image' => 'nullable|image'
         ];
     }
 }

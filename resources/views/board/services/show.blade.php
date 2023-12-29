@@ -7,7 +7,7 @@
 			<div class="col">
 				<!-- Page pre-title -->
 				<div class="page-pretitle">
-				عرض تفاصيل
+					عرض تفاصيل
 				</div>
 				<h2 class="page-title">
 					الخدمات
@@ -58,7 +58,6 @@
 										@endswitch
 									</td>
 								</tr>
-								
 								<tr>
 									<th> تم الاضافه بواسطه </th>
 									<td> {{ $service->user?->name }}  </td>
@@ -67,34 +66,22 @@
 									<th> العنوان بالعربيه </th>
 									<td> {{ $service->getTranslation('name' , 'ar') }}  </td>
 								</tr>
-
-								<tr>
-									<th> العنوان بالانجليزيه </th>
-									<td> {{ $service->getTranslation('name' , 'en') }}  </td>
-								</tr>
-
 								<tr>
 									<th> المحتوى البسيط  بالعربيه </th>
 									<td> {{ $service->getTranslation('subtitle' , 'ar') }}  </td>
 								</tr>
-
-								<tr>
-									<th> المحتوى البسيط  بالانجليزيه </th>
-									<td> {{ $service->getTranslation('subtitle' , 'en') }}  </td>
-								</tr>
-
-
 								<tr>
 									<th> المحتوى بالعربيه </th>
 									<td> {!! $service->getTranslation('content' , 'ar') !!}  </td>
 								</tr>
-
 								<tr>
-									<th> المحتوى بالانجليزيه </th>
-									<td> {!! $service->getTranslation('content' , 'en') !!}  </td>
-								</tr>
-
-								
+									<th> صوره الخدمه </th>
+									<td> 
+										<a class="avatar" data-fslightbox="gallery" href="{{ Storage::url('services/'.$service->image) }}">
+											<img  src="{{ Storage::url('services/'.$service->image) }}" alt="">
+										</a>
+									</td>
+								</tr>								
 							</tbody>
 						</table>
 					</div>
@@ -103,4 +90,7 @@
 		</div>
 	</div>
 </div>
+@endsection
+@section('scripts')
+<script src="{{ asset('board_assets/dist/libs/fslightbox/index.js?1684106062') }}" defer></script>
 @endsection

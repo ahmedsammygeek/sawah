@@ -103,14 +103,14 @@
                 if (result.isConfirmed) {
                     Livewire.emit('deleteITem' , itemId )
                     $.toast({
-                      heading: 'رسال تاكيد',
-                      text: 'تم الحذف بنجاح',
-                      hideAfter: 5000 , 
-                      icon: 'success'  , 
-                      position: 'top-right',
-                      textAlign: 'right' , 
-                      allowToastClose: false , 
-                  })
+                        heading: 'رسال تاكيد',
+                        text: 'تم الحذف بنجاح',
+                        hideAfter: 5000 , 
+                        icon: 'success'  , 
+                        position: 'top-right',
+                        textAlign: 'right' , 
+                        allowToastClose: false , 
+                    })
                 }
             })
 

@@ -5,10 +5,9 @@
                 <thead>
                     <tr>
                         <th> # </th>
-                        <th>التعليق بالعربيه</th>
-                        <th>التعليق بالانجليزيه</th>
-                        <th>تاريخ الاضافه</th>
-                        <th>تم الاضافه بواسطه</th>
+                        <th> صوره المستخدم </th>
+                        <th> اسم المستخدم </th>
+                        <th> التقييم </th>
                         <th>حاله التقييم</th>
 
                         <th>خيارات</th>
@@ -21,10 +20,17 @@
                     @foreach ($reviews as $review)
                     <tr>
                         <td> {{ $i++ }} </td>
-                        <td> {{ $review->getTranslation('comment' , 'ar') }} </td>
-                        <td> {{ $review->getTranslation('comment' , 'en') }} </td>
-                        <td> {{ $review->created_at }} <span class="text-muted">{{ $review->created_at->diffForHumans() }}</span> </td>
-                        <td> {{ $review->user?->name }} </td>
+                        <td>
+                            <a class="avatar" data-fslightbox="gallery" href="{{ Storage::url('reviews/'.$review->image) }}">
+                                <img  src="{{ Storage::url('reviews/'.$review->image) }}" alt="">
+                            </a>
+                        </td>
+                        <td> {{ $review->name }} </td>
+                        <td>
+                            @for ($i = 0; $i < $review->rate ; $i++)
+                                <span data-index="0" data-value="1" class="gl-active"><!-- Download SVG icon from http://tabler-icons.io/i/star-filled --><svg xmlns="http://www.w3.org/2000/svg" class="icon gl-star-full icon-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" stroke-width="0" fill="currentColor"></path></svg></span>
+                            @endfor
+                        </td>
                         <td>
                             @switch($review->is_active)
                             @case(1)
@@ -84,6 +90,7 @@
 </div>
 
 @section('scripts')
+<script src="{{ asset('board_assets/dist/libs/fslightbox/index.js?1684106062') }}" defer></script>
 <script>
     $(function() {
 

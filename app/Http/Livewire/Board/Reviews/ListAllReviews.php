@@ -20,7 +20,7 @@ class ListAllReviews extends Component
 
     public function render()
     {
-        $reviews = Review::with('user')->get();
+        $reviews = Review::with('user')->latest()->get();
         return view('livewire.board.reviews.list-all-reviews' , compact('reviews'));
     }
 }

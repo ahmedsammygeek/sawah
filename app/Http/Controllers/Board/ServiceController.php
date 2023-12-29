@@ -33,13 +33,11 @@ class ServiceController extends Controller
     {
         $service = new Service;
         $service->setTranslation('name' , 'ar', $request->name_ar );
-        $service->setTranslation('name' , 'en', $request->name_en );
         $service->setTranslation('subtitle' , 'ar', $request->subtitle_ar );
-        $service->setTranslation('subtitle' , 'en', $request->subtitle_en );
         $service->setTranslation('content' , 'ar', $request->content_ar );
-        $service->setTranslation('content' , 'en', $request->content_en );
         $service->user_id = Auth::id();
-        $service->is_active = $request->filled('active') ? 1 : 0;
+       
+        $service->is_active = $request->filled('is_active') ? 1 : 0;
         $service->save();
 
         return redirect(route('board.services.index'))->with('success' , 'تم إضافه الخدمه بنجاح');
@@ -63,13 +61,12 @@ class ServiceController extends Controller
     public function update(UpdateServiceRequest $request, Service $service)
     {
         $service->setTranslation('name' , 'ar', $request->name_ar );
-        $service->setTranslation('name' , 'en', $request->name_en );
         $service->setTranslation('subtitle' , 'ar', $request->subtitle_ar );
-        $service->setTranslation('subtitle' , 'en', $request->subtitle_en );
         $service->setTranslation('content' , 'ar', $request->content_ar );
-        $service->setTranslation('content' , 'en', $request->content_en );
-        $service->user_id = Auth::id();
-        $service->is_active = $request->filled('active') ? 1 : 0;
+        $service->is_active = $request->filled('is_active') ? 1 : 0;
+        if ($request->hasFile('image')) {
+            $service->image = basename($request->file('image')->store('services'));
+        }
         $service->save();
 
         return redirect(route('board.services.index'))->with('success' , 'تم تعديل الخدمه بنجاح');

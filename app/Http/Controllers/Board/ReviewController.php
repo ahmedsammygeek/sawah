@@ -34,11 +34,10 @@ class ReviewController extends Controller
     {
         $review = new Review;
         $review->setTranslation('comment' , 'ar' , $request->content_ar );
-        $review->setTranslation('comment' , 'en' , $request->content_en );
         $review->name = $request->name;
         $review->rate = $request->rate;
         $review->image = basename($request->file('image')->store('reviews'));
-        $review->is_active = $request->filled('active') ? 1 : 0;
+        $review->is_active = $request->filled('is_active') ? 1 : 0;
         $review->user_id = Auth::id();
         $review->save();
         return redirect(route('board.reviews.index'))->with('success' , 'تم إضافه التقييم بنجاح');

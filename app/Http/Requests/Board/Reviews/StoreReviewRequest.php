@@ -25,9 +25,8 @@ class StoreReviewRequest extends FormRequest
             'image' => 'required|image' , 
             'name' => 'required', 
             'content_ar' => 'required' , 
-            'content_en' => 'required' , 
             'rate' => 'required' , 
-            'active' => 'nullable' , 
+            'is_active' => 'nullable' , 
         ];
     }
 }
