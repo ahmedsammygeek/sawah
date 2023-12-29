@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Board\Settings;
+namespace App\Http\Requests\Board\Goals;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateAboutRequest extends FormRequest
+class StoreGoalRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,10 @@ class UpdateAboutRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'about_ar' => 'required' , 
+            'title' => 'required' , 
+            'content' => 'required' , 
+            'image' => 'required|image' , 
+            'is_active' => 'nullable' , 
         ];
     }
 }

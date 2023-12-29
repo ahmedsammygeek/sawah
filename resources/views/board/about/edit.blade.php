@@ -28,10 +28,8 @@
 						<h3 class="card-title text-white"> تعديل من نحن  </h3>
 					</div>
 					<div class="card-body">
-						
-
 						<div class="mb-3">
-							<label class="form-label required"> المحتوى  بالعربيه </label>
+							<label class="form-label required"> المحتوى  </label>
 							<div>
 								<textarea  class="form-control @error('about_ar') is-invalid @enderror " name='about_ar' id="tinymce-mytextarea" cols="30" rows="10"> {{ $settings->getTranslation('about'  , 'ar' ) }} </textarea>
 								@error('about_ar')
@@ -39,26 +37,10 @@
 								@enderror
 							</div>
 						</div>
-
-
-						<div class="mb-3">
-							<label class="form-label required"> المحتوى  بالانجليزيه </label>
-							<div>
-								<textarea  class="form-control @error('about_en') is-invalid @enderror " name='about_en' id="tinymce-mytextarea" cols="30" rows="10"> {{ $settings->getTranslation('about'  , 'en' ) }} </textarea>
-								@error('about_en')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
-
-
-
-
-
 					</div>
 					<div class="card-footer text-end">
 						<div class='d-flex' >
-							<a href="{{ route('board.services.index') }}" class="btn btn-link"> تراجع </a>
+							<a href="{{ route('board.about.edit') }}" class="btn btn-link"> تراجع </a>
 							<button type="submit" class="btn btn-primary ms-auto">تعديل</button>
 						</div>
 					</div>

@@ -27,11 +27,8 @@ class SettingsController extends Controller
     {
         $settings = Setting::first();
         $settings->setTranslation('site_name' , 'ar' , $request->site_name_ar );
-        $settings->setTranslation('site_name' , 'en' , $request->site_name_en );
         $settings->setTranslation('address' , 'ar' , $request->address_ar );
-        $settings->setTranslation('address' , 'en' , $request->address_en );
         $settings->setTranslation('working_hours' , 'ar' , $request->working_hours_ar );
-        $settings->setTranslation('working_hours' , 'en' , $request->working_hours_en );
         $settings->email = $request->email;
         $settings->mobile = $request->mobile;
         $settings->youtube = $request->youtube;
@@ -40,8 +37,6 @@ class SettingsController extends Controller
         $settings->instagram = $request->instagram;
         $settings->whatsapp = $request->whatsapp;
         $settings->snap_chat = $request->snap_chat;
-        $settings->tiktok = $request->tiktok;
-        $settings->messenger = $request->messenger;
         $settings->save();
         return back()->with('success' , 'تم تعديل الاعدادات بنجاح' );
     }

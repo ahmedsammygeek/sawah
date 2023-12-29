@@ -16,7 +16,7 @@ use App\Http\Controllers\Board\BoardController;
 use App\Http\Controllers\Board\AreaController;
 use App\Http\Controllers\Board\TagController;
 use App\Http\Controllers\Board\TopicController;
-
+use App\Http\Controllers\Board\GoalController;
 
 Route::get('test' , function(){
 
@@ -52,13 +52,15 @@ Route::group(['prefix' => 'Board' , 'as' => 'board.' , 'middleware' => 'admin' ]
 	Route::resource('areas', AreaController::class ); // done
 	Route::resource('reviews', ReviewController::class ); // done
 	Route::resource('tags', TagController::class );  // done
-	Route::resource('topics', TopicController::class ); 
+	Route::resource('topics', TopicController::class );  // done
+	Route::resource('goals', GoalController::class );  // done
 
 	Route::resource('offers', OfferController::class );
 	Route::resource('products', ProductController::class );
 	Route::resource('projects', ProjectController::class );
-	Route::get('settings/edit'  , [SettingsController::class , 'edit'] )->name('settings.edit');
-	Route::patch('settings'  , [SettingsController::class , 'update'] )->name('settings.update');
+
+	Route::get('settings/edit'  , [SettingsController::class , 'edit'] )->name('settings.edit'); // done
+	Route::patch('settings'  , [SettingsController::class , 'update'] )->name('settings.update'); // done
 	Route::get('terms/edit'  , [TermsController::class , 'edit'] )->name('terms.edit');
 	Route::patch('terms'  , [TermsController::class , 'update'] )->name('terms.update');
 	Route::get('about/edit'  , [AboutController::class , 'edit'] )->name('about.edit');

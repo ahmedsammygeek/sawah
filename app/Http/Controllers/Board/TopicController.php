@@ -102,7 +102,7 @@ class TopicController extends Controller
             $topic->tags()->saveMany($topic_tags);
         }
 
-         return redirect(route('board.topics.index'))->with('success'  , 'تم التعديل بنجاح');
+        return redirect(route('board.topics.index'))->with('success'  , 'تم التعديل بنجاح');
     }
 
     /**

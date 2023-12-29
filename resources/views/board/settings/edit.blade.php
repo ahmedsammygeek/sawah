@@ -56,8 +56,9 @@
 								@enderror
 							</div>
 						</div>
+
 						<div class="mb-3">
-							<label class="form-label required"> اسم الموقع بالعربيه </label>
+							<label class="form-label required"> اسم الموقع  </label>
 							<div>
 								<input type="text" class="form-control @error('site_name_ar') is-invalid @enderror " name='site_name_ar' value="{{ $settings->getTranslation('site_name' , 'ar') }}" >
 								@error('site_name_ar')
@@ -66,18 +67,10 @@
 							</div>
 						</div>
 
-						<div class="mb-3">
-							<label class="form-label required"> اسم الموقع بالانجليزيه </label>
-							<div>
-								<input type="text" class="form-control @error('site_name_en') is-invalid @enderror " name='site_name_en' value="{{ $settings->getTranslation('site_name' , 'en') }}" >
-								@error('site_name_en')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
+
 
 						<div class="mb-3">
-							<label class="form-label required"> عنوان المقر بالعربيه </label>
+							<label class="form-label required"> عنوان المقر  </label>
 							<div>
 								<input type="text" class="form-control @error('address_ar') is-invalid @enderror " name='address_ar' value="{{ $settings->getTranslation('address' , 'ar') }}" >
 								@error('address_ar')
@@ -86,19 +79,11 @@
 							</div>
 						</div>
 
-						<div class="mb-3">
-							<label class="form-label required"> عنوان المقر بالانجليزيه </label>
-							<div>
-								<input type="text" class="form-control @error('address_en') is-invalid @enderror " name='address_en' value="{{ $settings->getTranslation('address' , 'en') }}" >
-								@error('address_en')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
+
 
 
 						<div class="mb-3">
-							<label class="form-label required"> مواعيد العمل بالعربيه </label>
+							<label class="form-label required"> مواعيد العمل  </label>
 							<div>
 								<input type="text" class="form-control @error('working_hours_ar') is-invalid @enderror " name='working_hours_ar' value="{{ $settings->getTranslation('working_hours' , 'ar') }}" >
 								@error('working_hours_ar')
@@ -107,15 +92,7 @@
 							</div>
 						</div>
 
-						<div class="mb-3">
-							<label class="form-label required"> مواعيد العمل بالانجليزيه </label>
-							<div>
-								<input type="text" class="form-control @error('working_hours_en') is-invalid @enderror " name='working_hours_en' value="{{ $settings->getTranslation('working_hours' , 'en') }}" >
-								@error('working_hours_en')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
+
 
 						<div class="mb-3">
 							<label class="form-label required"> facebook </label>
@@ -169,36 +146,10 @@
 								@enderror
 							</div>
 						</div>
-
-						<div class="mb-3">
-							<label class="form-label required"> Tik Tok </label>
-							<div>
-								<input type="text" class="form-control @error('tiktok') is-invalid @enderror " name='tiktok' value="{{ $settings->tiktok }}" >
-								@error('tiktok')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
-
-
-						<div class="mb-3">
-							<label class="form-label required"> Messenger </label>
-							<div>
-								<input type="text" class="form-control @error('messenger') is-invalid @enderror " name='messenger' value="{{ $settings->messenger }}" >
-								@error('messenger')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
-
-
-
-
-
 					</div>
 					<div class="card-footer text-end">
 						<div class='d-flex' >
-							<a href="{{ route('board.services.index') }}" class="btn btn-link"> تراجع </a>
+							<a href="{{ route('board.settings.edit') }}" class="btn btn-link"> تراجع </a>
 							<button type="submit" class="btn btn-primary ms-auto">تعديل</button>
 						</div>
 					</div>
