@@ -14,6 +14,7 @@ use App\Http\Controllers\Board\AboutController;
 use App\Http\Controllers\Board\LoginController;
 use App\Http\Controllers\Board\BoardController;
 use App\Http\Controllers\Board\AreaController;
+use App\Http\Controllers\Board\TagController;
 
 
 Route::get('test' , function(){
@@ -50,7 +51,8 @@ Route::group(['prefix' => 'Board' , 'as' => 'board.' , 'middleware' => 'admin' ]
 	Route::resource('users', UserController::class ); // done
 	Route::resource('services', ServiceController::class ); // done
 	Route::resource('areas', AreaController::class ); // done
-	Route::resource('reviews', ReviewController::class );
+	Route::resource('reviews', ReviewController::class ); // done
+	Route::resource('tags', TagController::class ); 
 
 	Route::resource('offers', OfferController::class );
 	Route::resource('products', ProductController::class );
