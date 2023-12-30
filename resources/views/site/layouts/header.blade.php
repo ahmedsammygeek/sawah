@@ -18,16 +18,16 @@
                         <a class="nav-link" href="listing.html">مشاريعنا</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="services.html">خدماتنا</a>
+                        <a class="nav-link" href="{{ route('services') }}">خدماتنا</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pricing.html">الباقات والعروض</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html">المدونة</a>
+                        <a class="nav-link" href="{{ route('blog') }}">المدونة</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contactus.html">تواصل بنا</a>
+                        <a class="nav-link" href="{{ route('contact') }}">تواصل بنا</a>
                     </li>
                 </ul>
             </div>

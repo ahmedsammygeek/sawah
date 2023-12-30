@@ -15,9 +15,7 @@ use Mail;
 use App\Mail\ContactUsMail;
 class SiteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $services = Service::where('is_active' , 1)->latest()->get();
@@ -27,9 +25,6 @@ class SiteController extends Controller
         return view('site.index' , compact('projects' , 'areas'  , 'services' , 'reviews' ) );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function about()
     {
         $goals = Goal::where('is_active' , 1 )->latest()->get();
@@ -37,15 +32,12 @@ class SiteController extends Controller
         return view('site.about' , compact('reviews' , 'goals' ));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function services()
     {
-        $offers = Offer::where('is_active' , 1)->latest()->get();
         $reviews = Review::where('is_active' , 1)->latest()->get();
         $services = Service::where('is_active' , 1)->latest()->get();
-        return view('site.services'  , compact('services'  , 'offers' , 'reviews'  ) );
+        return view('site.services'  , compact('services' , 'reviews'  ) );
     }
 
     public function offers()

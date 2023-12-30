@@ -32,6 +32,7 @@ Route::group(
 		Route::get('/', [SiteController::class , 'index' ] )->name('index');
 		Route::get('/about', [SiteController::class , 'about' ] )->name('about');
 		Route::get('/services', [SiteController::class , 'services' ] )->name('services');
+		Route::get('/blog', [SiteController::class , 'blog' ] )->name('blog');
 		Route::get('/offers', [SiteController::class , 'offers' ] )->name('offers');
 		Route::get('/contact', [SiteController::class , 'contact' ] )->name('contact');
 		Route::get('/products/{product}', [SiteController::class , 'show_product' ] )->name('products.show');
