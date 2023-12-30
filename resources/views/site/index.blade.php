@@ -230,7 +230,7 @@
 <!-- end the review section -->
 
 <!-- start the package section -->
-<section class="package">
+{{-- <section class="package">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -286,7 +286,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- end the package section -->
 
 

@@ -76,10 +76,7 @@ class SiteController extends Controller
 
     public function offers()
     {
-        $products = Product::where('is_active' , 1)->latest()->get();
-        $offers = Offer::where('is_active' , 1)->latest()->get();
-        $reviews = Review::where('is_active' , 1)->latest()->get();
-        return view('site.offers' , compact('products' , 'reviews' , 'offers') );
+        return view('site.offers');
     }
 
     public function contact()
