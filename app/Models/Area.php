@@ -13,6 +13,12 @@ class Area extends Model
     public $translatable = ['name'];
 
 
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+
     public function user()
     {
         return $this->belongsTo(User::class);

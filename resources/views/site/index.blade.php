@@ -2,40 +2,40 @@
 @extends('site.layouts.master')
 
 @section('page_content')
-   <!-- start the wrap-header section -->
-    <section class="wrap-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>ابحث عن منازل يسهل الوصول إليها<br> للإيجار والتمليك</h2>
-                </div>
+<!-- start the wrap-header section -->
+<section class="wrap-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>ابحث عن منازل يسهل الوصول إليها<br> للإيجار والتمليك</h2>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <form role="form">
-                        <div class="key">
-                            <i class='bx bx-search'></i>
-                            <input type="text" placeholder="أدخل كلمة البحث هنا">
-                        </div> 
-                        <div class="location">
-                            <i class='bx bx-location-plus'></i>
-                            <select>
-                                <option>الشيخ زايد</option>
-                                <option>التجمع الخامس</option>
-                                <option>مدينتي</option>
-                                <option>6 أكتوبر</option>
-                            </select>
-                        </div>
-                        <div class="select">
-                            <i class='bx bx-category'></i>
-                            <select>
-                                <option>فلل</option>
-                                <option>قصور</option>
-                                <option>منازل</option>
-                                <option>مكاتب</option>
-                                <option>محلات</option>
-                            </select>
-                        </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <form role="form">
+                    <div class="key">
+                        <i class='bx bx-search'></i>
+                        <input type="text" placeholder="أدخل كلمة البحث هنا">
+                    </div> 
+                    <div class="location">
+                        <i class='bx bx-location-plus'></i>
+                        <select>
+                            <option>الشيخ زايد</option>
+                            <option>التجمع الخامس</option>
+                            <option>مدينتي</option>
+                            <option>6 أكتوبر</option>
+                        </select>
+                    </div>
+                    <div class="select">
+                        <i class='bx bx-category'></i>
+                        <select>
+                            <option>فلل</option>
+                            <option>قصور</option>
+                            <option>منازل</option>
+                            <option>مكاتب</option>
+                            <option>محلات</option>
+                        </select>
+                    </div>
                         <!-- <div class="date">
                             <span>موعد الوصول</span>
                             <input type="date">
@@ -81,243 +81,53 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($projects as $project)
                 <div class="col-lg-4 col-md-6">
                     <div class="box">
                         <div class="img-box">
-                            <img src="img/exterior-01-488x326.jpg" alt="item">
+                            <img src="{{ Storage::url('projects/'.$project->image) }}" alt="item">
                         </div>
                         <div class="text-box">
                             <div class="top">
                                 <div class="name">
+                                    @if ($project->type == 1 )
                                     <span>للبيع</span>
-                                    <a href="listing-details.html">فيلا بالتجمع الخامس</a>
+                                    @else
+                                    <span> للايجار </span>
+                                    @endif
+                                    <a href="listing-details.html"> {{ $project->name }} </a>
                                 </div>
-                                <h4>5000$</h4>
+                                <h4> {{ $project->price }} $</h4>
                             </div>
                             <div class="list">
                                 <ul>
                                     <li>
                                         <i class='bx bx-bed'></i>
-                                        3 غرفة نوم
+                                        {{ $project->rooms }} غرفة نوم
                                     </li>
                                     <li>
                                         <i class='bx bx-bath'></i>
-                                        3 حمام
+                                        {{ $project->bathrooms }} حمام
                                     </li>
                                     <li>
                                         <i class='bx bx-home-alt-2'></i>
-                                        1200 m2
+                                        {{ $project->total_area }}
                                     </li>
                                 </ul>
                             </div>
                             <div class="bottom">
                                 <li>
                                     <i class='bx bx-location-plus'></i>
-                                    التجمع الخامس - كمبوند المنتزه
+                                    {{ $project->address }}
                                 </li>
                                 <button><a href="listing-details.html">view</a></button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="img/exterior-04-488x326.jpg" alt="exterior">
-                        </div>
-                        <div class="text-box">
-                            <div class="top">
-                                <div class="name">
-                                    <span>ايجار</span>
-                                    <a href="listing-details.html">فيلا بالتجمع الخامس</a>
-                                </div>
-                                <h4>5000$</h4>
-                            </div>
-                            <div class="list">
-                                <ul>
-                                    <li>
-                                        <i class='bx bx-bed'></i>
-                                        3 غرفة نوم
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-bath'></i>
-                                        3 حمام
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-home-alt-2'></i>
-                                        1200 m2
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="bottom">
-                                <li>
-                                    <i class='bx bx-location-plus'></i>
-                                    التجمع الخامس - كمبوند المنتزه
-                                </li>
-                                <button><a href="listing-details.html">view</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="img/exterior-05-488x326.jpg" alt="exterior">
-                        </div>
-                        <div class="text-box">
-                            <div class="top">
-                                <div class="name">
-                                    <span>ايجار</span>
-                                    <a href="listing-details.html">فيلا بالتجمع الخامس</a>
-                                </div>
-                                <h4>5000$</h4>
-                            </div>
-                            <div class="list">
-                                <ul>
-                                    <li>
-                                        <i class='bx bx-bed'></i>
-                                        3 غرفة نوم
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-bath'></i>
-                                        3 حمام
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-home-alt-2'></i>
-                                        1200 m2
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="bottom">
-                                <li>
-                                    <i class='bx bx-location-plus'></i>
-                                    التجمع الخامس - كمبوند المنتزه
-                                </li>
-                                <button><a href="listing-details.html">view</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach                
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="img/p-19.jpg" alt="exterior-01-488x326">
-                        </div>
-                        <div class="text-box">
-                            <div class="top">
-                                <div class="name">
-                                    <span>ايجار</span>
-                                    <a href="listing-details.html">فيلا بالتجمع الخامس</a>
-                                </div>
-                                <h4>5000$</h4>
-                            </div>
-                            <div class="list">
-                                <ul>
-                                    <li>
-                                        <i class='bx bx-bed'></i>
-                                        3 غرفة نوم
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-bath'></i>
-                                        3 حمام
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-home-alt-2'></i>
-                                        1200 m2
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="bottom">
-                                <li>
-                                    <i class='bx bx-location-plus'></i>
-                                    التجمع الخامس - كمبوند المنتزه
-                                </li>
-                                <button><a href="listing-details.html">view</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="img/p-24.jpg" alt="exterior">
-                        </div>
-                        <div class="text-box">
-                            <div class="top">
-                                <div class="name">
-                                    <span>للبيع</span>
-                                    <a href="listing-details.html">فيلا بالتجمع الخامس</a>
-                                </div>
-                                <h4>5000$</h4>
-                            </div>
-                            <div class="list">
-                                <ul>
-                                    <li>
-                                        <i class='bx bx-bed'></i>
-                                        3 غرفة نوم
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-bath'></i>
-                                        3 حمام
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-home-alt-2'></i>
-                                        1200 m2
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="bottom">
-                                <li>
-                                    <i class='bx bx-location-plus'></i>
-                                    التجمع الخامس - كمبوند المنتزه
-                                </li>
-                                <button><a href="listing-details.html">view</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="img/p-4.jpg" alt="exterior-01-488x326">
-                        </div>
-                        <div class="text-box">
-                            <div class="top">
-                                <div class="name">
-                                    <span>ايجار</span>
-                                    <a href="listing-details.html">فيلا بالتجمع الخامس</a>
-                                </div>
-                                <h4>5000$</h4>
-                            </div>
-                            <div class="list">
-                                <ul>
-                                    <li>
-                                        <i class='bx bx-bed'></i>
-                                        3 غرفة نوم
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-bath'></i>
-                                        3 حمام
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-home-alt-2'></i>
-                                        1200 m2
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="bottom">
-                                <li>
-                                    <i class='bx bx-location-plus'></i>
-                                    التجمع الخامس - كمبوند المنتزه
-                                </li>
-                                <button><a href="listing-details.html">view</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-lg-12">
                     <button><a href="listing.html">أكتشف المزيد</a></button>
@@ -337,93 +147,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4">
+                @foreach ($areas as $area)
+                     <div class="col-lg-4 col-md-4">
                     <div class="find-box">
                         <div class="find-img">
-                            <img src="img/locations/c-1.png" alt="c-1">
+                            <img src="{{ Storage::url('areas/'.$area->image) }}" alt="c-1">
                         </div>
                         <div class="find-text">
                             <div class="find-text-left">
-                                <a href="listing.html">التجمع الخامس</a>
-                                <span>3 عقارات</span>
+                                <a href="listing.html"> {{ $area->name }} </a>
+                                <span> {{ $area->projects_count }} عقارات</span>
                             </div>
                             <a href="listing.html"><i class='bx bx-chevrons-left'></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="find-box">
-                        <div class="find-img">
-                            <img src="img/locations/c-2.png" alt="c-1">
-                        </div>
-                        <div class="find-text">
-                            <div class="find-text-left">
-                                <a href="listing.html">الشيخ زايد</a>
-                                <span>3 عقارات</span>
-                            </div>
-                            <a href="listing.html"><i class='bx bx-chevrons-left'></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="find-box">
-                        <div class="find-img">
-                            <img src="img/locations/c-3.png" alt="c-1">
-                        </div>
-                        <div class="find-text">
-                            <div class="find-text-left">
-                                <a href="listing.html">مدينة 6 أكتوبر </a>
-                                <span>3 عقارات</span>
-                            </div>
-                            <a href="listing.html"><i class='bx bx-chevrons-left'></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div class="find-box">
-                        <div class="find-img">
-                            <img src="img/locations/c-4.png" alt="c-1">
-                        </div>
-                        <div class="find-text">
-                            <div class="find-text-left">
-                                <a href="listing.html">التجمع الأول</a>
-                                <span>3 عقارات</span>
-                            </div>
-                            <a href="listing.html"><i class='bx bx-chevrons-left'></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="find-box">
-                        <div class="find-img">
-                            <img src="img/locations/c-5.png" alt="c-1">
-                        </div>
-                        <div class="find-text">
-                            <div class="find-text-left">
-                                <a href="listing.html">مدينتي</a>
-                                <span>3 عقارات</span>
-                            </div>
-                            <a href="listing.html"><i class='bx bx-chevrons-left'></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="find-box">
-                        <div class="find-img">
-                            <img src="img/locations/c-4 (1).png" alt="c-1">
-                        </div>
-                        <div class="find-text">
-                            <div class="find-text-left">
-                                <a href="listing.html">التجمع الخامس</a>
-                                <span>3 عقارات</span>
-                            </div>
-                            <a href="listing.html"><i class='bx bx-chevrons-left'></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-lg-12">
                     <button><a href="listing.html">أكتشف المزيد</a></button>
@@ -443,61 +184,27 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                @php
+                    $i = 1;
+                @endphp
+                @foreach ($services as $service)
+                    <div class="col-lg-6 col-md-6">
                     <div class="box">
                         <div class="icon">
-                            <h4>01</h4>
+                            <h4>0{{ $i++ }}</h4>
                         </div>
                         <div class="text">
-                            <h3>سيارات بسائق خاص</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Placeat a nobis, itaque porro aperiam repellat?</p>
+                            <h3> {{ $service->name }} </h3>
+                            <p> {{ $service->subtitle }} </p>
                             <a href="#">تفاصيل الخدمة</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="box">
-                        <div class="icon">
-                            <h4>02</h4>
-                        </div>
-                        <div class="text">
-                            <h3>حجز الفنادق</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Placeat a nobis, itaque porro aperiam repellat?</p>
-                            <a href="#">تفاصيل الخدمة</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
+
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="box">
-                        <div class="icon">
-                            <h4>03</h4>
-                        </div>
-                        <div class="text">
-                            <h3>طائرات خاصة</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Placeat a nobis, itaque porro aperiam repellat?</p>
-                            <a href="#">تفاصيل الخدمة</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="box">
-                        <div class="icon">
-                            <h4>04</h4>
-                        </div>
-                        <div class="text">
-                            <h3>استقبال من المطار</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Placeat a nobis, itaque porro aperiam repellat?</p>
-                            <a href="#">تفاصيل الخدمة</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-lg-12">
                     <button><a href="services.html">أكتشف المزيد</a></button>
@@ -517,60 +224,26 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                @foreach ($reviews as $review)
+                   <div class="col-lg-4 col-md-6">
                     <div class="rev-box">
                         <div class="rev-img">
-                            <img src="img/users/user-3.jpg" alt="user">
+                            <img src="{{ Storage::url('reviews/'.$review->image) }}" alt="user">
                         </div>
                         <div class="rev-text">
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, facere.
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, facere
+                            @for ($i = 0; $i < $review->rate ; $i++)
+                                <i class='bx bxs-star'></i>
+                            @endfor
+
+                            <p>
+                                {{ $review->comment }}
                             </p>
-                            <h4>mohamed elrafey</h4>
+                            <h4>{{ $review->name }}</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="rev-box">
-                        <div class="rev-img">
-                            <img src="img/users/user-3.jpg" alt="user">
-                        </div>
-                        <div class="rev-text">
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, facere.
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, facere
-                            </p>
-                            <h4>mohamed elrafey</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="rev-box">
-                        <div class="rev-img">
-                            <img src="img/users/user-3.jpg" alt="user">
-                        </div>
-                        <div class="rev-text">
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <i class='bx bxs-star'></i>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, facere.
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, facere
-                            </p>
-                            <h4>mohamed elrafey</h4>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -638,4 +311,4 @@
 
     
 
-@endsection
+    @endsection

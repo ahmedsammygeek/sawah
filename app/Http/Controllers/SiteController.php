@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\Offer;
 use App\Models\Review;
 use App\Models\Project;
+use App\Models\Area;
 use App\Http\Requests\Site\ContactUsRequest;
 use Mail;
 use App\Mail\ContactUsMail;
@@ -18,11 +19,11 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $products = Product::where('is_active' , 1)->latest()->get();
         $services = Service::where('is_active' , 1)->latest()->get();
-        $offers = Offer::where('is_active' , 1)->latest()->get();
         $reviews = Review::where('is_active' , 1)->latest()->get();
-        return view('site.index' , compact('products' , 'services' , 'offers' , 'reviews') );
+        $projects = Project::where('is_active' , 1 )->latest()->take(6)->get();
+        $areas = Area::withCount('projects')->where('is_active' , 1 )->orderByRaw("RAND()")->take(6)->get();
+        return view('site.index' , compact('projects' , 'areas'  , 'services' , 'reviews' ) );
     }
 
     /**
