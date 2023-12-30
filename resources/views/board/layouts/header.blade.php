@@ -93,6 +93,86 @@
       </a>
     </li>
     <li class="nav-item ">
+      <a class="nav-link" href="{{ route('board.categories.index') }}" >
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-bank" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+           <path d="M3 21l18 0"></path>
+           <path d="M3 10l18 0"></path>
+           <path d="M5 6l7 -3l7 3"></path>
+           <path d="M4 10l0 11"></path>
+           <path d="M20 10l0 11"></path>
+           <path d="M8 14l0 3"></path>
+           <path d="M12 14l0 3"></path>
+           <path d="M16 14l0 3"></path>
+         </svg>
+       </span>
+       <span class="nav-link-title">
+        التصنيفات
+      </span>
+    </a>
+  </li>
+  <li class="nav-item ">
+      <a class="nav-link" href="{{ route('board.areas.index') }}" >
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-bank" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+           <path d="M3 21l18 0"></path>
+           <path d="M3 10l18 0"></path>
+           <path d="M5 6l7 -3l7 3"></path>
+           <path d="M4 10l0 11"></path>
+           <path d="M20 10l0 11"></path>
+           <path d="M8 14l0 3"></path>
+           <path d="M12 14l0 3"></path>
+           <path d="M16 14l0 3"></path>
+         </svg>
+       </span>
+       <span class="nav-link-title">
+        المناطق
+      </span>
+    </a>
+  </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="{{ route('board.topics.index') }}" >
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-bank" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+           <path d="M3 21l18 0"></path>
+           <path d="M3 10l18 0"></path>
+           <path d="M5 6l7 -3l7 3"></path>
+           <path d="M4 10l0 11"></path>
+           <path d="M20 10l0 11"></path>
+           <path d="M8 14l0 3"></path>
+           <path d="M12 14l0 3"></path>
+           <path d="M16 14l0 3"></path>
+         </svg>
+       </span>
+       <span class="nav-link-title">
+        المقالات
+      </span>
+    </a>
+  </li>
+  <li class="nav-item ">
+      <a class="nav-link" href="{{ route('board.tags.index') }}" >
+        <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-bank" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+           <path d="M3 21l18 0"></path>
+           <path d="M3 10l18 0"></path>
+           <path d="M5 6l7 -3l7 3"></path>
+           <path d="M4 10l0 11"></path>
+           <path d="M20 10l0 11"></path>
+           <path d="M8 14l0 3"></path>
+           <path d="M12 14l0 3"></path>
+           <path d="M16 14l0 3"></path>
+         </svg>
+       </span>
+       <span class="nav-link-title">
+        الوسوم
+      </span>
+    </a>
+  </li>
+    <li class="nav-item ">
       <a class="nav-link" href="{{ route('board.projects.index') }}" >
         <span class="nav-link-icon d-md-none d-lg-inline-block">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-bank" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -162,7 +242,7 @@
 </li>
 
 
-<li class="nav-item ">
+{{-- <li class="nav-item ">
   <a class="nav-link" href="{{ route('board.terms.edit') }}" >
     <span class="nav-link-icon d-md-none d-lg-inline-block">
      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hand-stop" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -177,7 +257,7 @@
     الشروط و الاحكام
   </span>
 </a>
-</li>
+</li> --}}
 
 </ul>
 

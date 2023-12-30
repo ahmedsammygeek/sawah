@@ -16,7 +16,7 @@ class ContactUs extends Component
 
     protected $rules = [
         'name' => 'required' , 
-        'email' => 'nullable|email' , 
+        'email' => 'required|email' , 
         'phone' => 'required' , 
         'message' => 'required' , 
     ];

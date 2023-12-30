@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-lg-12">
-                <label>البريد الالكتروني </label>
+                <label>البريد الالكتروني  <span>*</span> </label>
                 <input type="email" wire:model='email' placeholder="البريد الالكتروني">
                  @error('email')
                 <p class='text-danger' > {{ $message }} </p>

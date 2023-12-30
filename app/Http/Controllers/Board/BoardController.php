@@ -11,7 +11,10 @@ use App\Models\Service;
 use App\Models\Project;
 use App\Models\Product;
 use App\Models\Review;
+use App\Models\Category;
+use App\Models\Area;
 use App\Models\Offer;
+use App\Models\Topic;
 
 use App\Http\Requests\Board\UpdateProfileRequest;
 use App\Http\Requests\Board\UpdatePasswordRequest;
@@ -22,11 +25,15 @@ class BoardController extends Controller
      */
     public function index()
     {
-        $products_count = Product::count();
+        $topics_count = Topic::count();
         $services_count = Service::count();
         $projects_count = Project::count();
-        $offers_count = Offer::count();
-        return view('board.index' , compact('products_count' , 'offers_count' , 'projects_count' , 'services_count' ) );
+        $categories_count = Category::count();
+        $areas_count = Area::count();
+        $reviews_count = Review::count();
+        $admins_count = User::count();
+
+        return view('board.index' , compact('topics_count' , 'admins_count'  , 'projects_count' , 'categories_count' , 'areas_count' , 'reviews_count' , 'services_count' ) );
     }
 
     public function logout() {
