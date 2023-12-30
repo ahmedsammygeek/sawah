@@ -53,6 +53,7 @@ class SiteController extends Controller
 
     public function show_project(Project $project)
     {
+        $project->increment('views_count' );
         $projects = Project::where('area_id' , $project->area_id )->where('category_id' , $project->category_id )->orderByRaw("RAND()")->take(4)->get();
         $project->load(['category' , 'area' , 'images' ]);
         return view('site.project' , compact('project'  , 'projects' ) );
@@ -66,6 +67,7 @@ class SiteController extends Controller
 
     public function show_topic(Topic $topic)
     {
+        $topic->increment('views_count' );
         $topics = Topic::where('is_active' , 1 )->whereNotIn('id' , [$topic->id] )->latest()->take(5)->get();
         $topic->load(['user']);
         $tags = Tag::where('is_active' , 1 )->get();
@@ -93,16 +95,12 @@ class SiteController extends Controller
 
     public function show_service(Service $service)
     {
+        $service->increment('views_count' );
         $offers = Offer::where('is_active' , 1)->latest()->get();
         $reviews = Review::where('is_active' , 1)->latest()->get();
         return view('site.service' , compact('service' , 'offers' , 'reviews'));
     }
 
-    public function show_product(Product $product)
-    {
-        return view('site.product' , compact('product'));
-    }
-    
 
 
     /**
