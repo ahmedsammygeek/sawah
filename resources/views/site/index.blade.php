@@ -176,7 +176,7 @@
                     <div class="text">
                         <h3> {{ $service->name }} </h3>
                         <p> {{ $service->subtitle }} </p>
-                        <a href="#">تفاصيل الخدمة</a>
+                        <a href="{{ $service->urlForSite() }}">تفاصيل الخدمة</a>
                     </div>
                 </div>
             </div>

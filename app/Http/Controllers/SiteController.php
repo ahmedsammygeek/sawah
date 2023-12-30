@@ -96,9 +96,8 @@ class SiteController extends Controller
     public function show_service(Service $service)
     {
         $service->increment('views_count' );
-        $offers = Offer::where('is_active' , 1)->latest()->get();
-        $reviews = Review::where('is_active' , 1)->latest()->get();
-        return view('site.service' , compact('service' , 'offers' , 'reviews'));
+        $reviews = Review::where('is_active' , 1)->orderByRaw("RAND()")->take(3)->latest()->get();
+        return view('site.service' , compact('service'  , 'reviews'));
     }
 
 
