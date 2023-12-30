@@ -48,21 +48,7 @@
                     </ul>                    
                 </div>
                 <div class="col-lg-6">
-                    <form>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <label>الاسم<span>*</span></label>
-                                <input type="text" placeholder="الاسم">
-                            </div>
-                            <div class="col-lg-6">
-                                <label>البريد الالكتروني <span>*</span></label>
-                                <input type="email" placeholder="البريد الالكتروني">
-                            </div>
-                        </div>
-                        <label>رسالتك <span>*</span></label>
-                        <textarea placeholder="موضوع الرسالة"></textarea>
-                        <button type="submit">ارسال</button>
-                    </form>
+                    @livewire('site.contact-us')
                 </div>
             </div>
         </div>
