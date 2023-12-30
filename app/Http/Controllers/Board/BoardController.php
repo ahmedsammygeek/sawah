@@ -33,7 +33,11 @@ class BoardController extends Controller
         $reviews_count = Review::count();
         $admins_count = User::count();
 
-        return view('board.index' , compact('topics_count' , 'admins_count'  , 'projects_count' , 'categories_count' , 'areas_count' , 'reviews_count' , 'services_count' ) );
+        $most_viewd_projects = Project::with(['area' , 'category' ])->where('views_count' , '!=' , 0 )->orderBy('views_count' , 'DESC' )->take(10)->get();
+        $most_viewd_services = Service::where('views_count' , '!=' , 0 )->orderBy('views_count' , 'DESC' )->take(10)->get();
+        $most_viewd_topics = Topic::where('views_count' , '!=' , 0 )->orderBy('views_count' , 'DESC' )->take(10)->get();
+
+        return view('board.index' , compact( 'most_viewd_topics' ,  'most_viewd_services' , 'most_viewd_projects' ,  'topics_count' , 'admins_count'  , 'projects_count' , 'categories_count' , 'areas_count' , 'reviews_count' , 'services_count' ) );
     }
 
     public function logout() {

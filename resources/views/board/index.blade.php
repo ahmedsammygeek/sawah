@@ -4,6 +4,11 @@
 
 <div class='page-body'>
 	<div class="container-xl">
+
+		<div class="row row-deck row-cards">
+			<h2> مرحبا بك فى لوحه تحكم الموقع </h2>
+		</div>
+
 		<div class="row row-deck row-cards">
 			<div class="col-12">
 				<div class="row row-cards">
@@ -213,44 +218,122 @@
 		<hr>
 		<div class="row row-deck row-cards">
 			<div class="col-md-12">
-                <div class="card">
-                  <div class="card-header">
-                    <ul class="nav nav-tabs card-header-tabs nav-fill" data-bs-toggle="tabs">
-                      <li class="nav-item">
-                        <a href="#tabs-home-7" class="nav-link active" data-bs-toggle="tab"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
-                          Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#tabs-profile-7" class="nav-link" data-bs-toggle="tab"><!-- Download SVG icon from http://tabler-icons.io/i/user -->
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
-                          Profile</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#tabs-activity-7" class="nav-link" data-bs-toggle="tab"><!-- Download SVG icon from http://tabler-icons.io/i/activity -->
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12h4l3 8l4 -16l3 8h4" /></svg>
-                          Activity</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="card-body">
-                    <div class="tab-content">
-                      <div class="tab-pane active show" id="tabs-home-7">
-                        <h4>Home tab</h4>
-                        <div>Cursus turpis vestibulum, dui in pharetra vulputate id sed non turpis ultricies fringilla at sed facilisis lacus pellentesque purus nibh</div>
-                      </div>
-                      <div class="tab-pane" id="tabs-profile-7">
-                        <h4>Profile tab</h4>
-                        <div>Fringilla egestas nunc quis tellus diam rhoncus ultricies tristique enim at diam, sem nunc amet, pellentesque id egestas velit sed</div>
-                      </div>
-                      <div class="tab-pane" id="tabs-activity-7">
-                        <h4>Activity tab</h4>
-                        <div>Donec ac vitae diam amet vel leo egestas consequat rhoncus in luctus amet, facilisi sit mauris accumsan nibh habitant senectus</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+				<div class="card">
+					<div class="card-header">
+						<ul class="nav nav-tabs card-header-tabs nav-fill" data-bs-toggle="tabs">
+							<li class="nav-item">
+								<a href="#tabs-home-7" class="nav-link active " data-bs-toggle="tab">
+									<span> المشاريع الاكثر مشاهده </span>
+									<span class="badge bg-blue text-blue-fg ms-2   ">10</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="#tabs-profile-7" class="nav-link " data-bs-toggle="tab">
+									
+									الخدمات الاكثر مشاهده
+									<span class="badge bg-blue text-blue-fg ms-2   ">10</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="#tabs-activity-7" class="nav-link " data-bs-toggle="tab">								
+									المقالات الاكثر مشاهده
+									<span class="badge bg-blue text-blue-fg ms-2   ">10</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="card-body">
+						<div class="tab-content">
+							<div class="tab-pane active show" id="tabs-home-7">
+								<div>
+									<table class="table table-vcenter card-table">
+										<thead>
+											<tr>
+												<th> اسم المشروع </th>
+												<th> المنطقه </th>
+												<th> التصنيف </th>
+												<th> عدد مرات الشماهدهس </th>
+												<th class="w-1"></th>
+											</tr>
+										</thead>
+										<tbody>
+											@foreach ($most_viewd_projects as $project)
+											<tr>
+												<td> {{ $project->name }} </td>
+												<td class="text-secondary">
+													{{ $project->area?->name }}
+												</td>
+												<td class="text-secondary">
+													{{ $project->category?->name }}
+												</td>
+												<td class="text-secondary">
+													{{ $project->views_count }}
+												</td>
+												<td>
+													<a href="{{ route('board.projects.show' , $project ) }}"> شاهد </a>
+												</td>
+											</tr>
+											@endforeach
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="tab-pane" id="tabs-profile-7">
+								<div>
+									<table class="table table-vcenter card-table">
+										<thead>
+											<tr>
+												<th> اسم الخدمه </th>
+												<th> عدد مرات الشماهدهس </th>
+												<th class="w-1"></th>
+											</tr>
+										</thead>
+										<tbody>
+											@foreach ($most_viewd_projects as $service)
+											<tr>
+												<td> {{ $service->name }} </td>
+												<td class="text-secondary">
+													{{ $service->views_count }}
+												</td>
+												<td>
+													<a href="{{ route('board.services.show' , $service ) }}"> شاهد </a>
+												</td>
+											</tr>
+											@endforeach
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="tab-pane" id="tabs-activity-7">
+								<div>
+									<table class="table table-vcenter card-table">
+										<thead>
+											<tr>
+												<th> عنوان المقال </th>
+												<th> عدد مرات الشماهدهس </th>
+												<th class="w-1"></th>
+											</tr>
+										</thead>
+										<tbody>
+											@foreach ($most_viewd_topics as $topic)
+											<tr>
+												<td> {{ $topic->title }} </td>
+												<td class="text-secondary">
+													{{ $topic->views_count }}
+												</td>
+												<td>
+													<a href="{{ route('board.topics.show' , $topic ) }}"> شاهد </a>
+												</td>
+											</tr>
+											@endforeach
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
