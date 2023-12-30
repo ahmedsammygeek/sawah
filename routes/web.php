@@ -29,7 +29,7 @@ Route::group(
 		'prefix' => LaravelLocalization::setLocale(),
 		'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 	], function(){ 
-		Route::get('/', [SiteController::class , 'index' ] );
+		Route::get('/', [SiteController::class , 'index' ] )->name('index');
 		Route::get('/about', [SiteController::class , 'about' ] )->name('about');
 		Route::get('/services', [SiteController::class , 'services' ] )->name('services');
 		Route::get('/offers', [SiteController::class , 'offers' ] )->name('offers');

@@ -9,6 +9,7 @@ use App\Models\Offer;
 use App\Models\Review;
 use App\Models\Project;
 use App\Models\Area;
+use App\Models\Goal;
 use App\Http\Requests\Site\ContactUsRequest;
 use Mail;
 use App\Mail\ContactUsMail;
@@ -31,10 +32,9 @@ class SiteController extends Controller
      */
     public function about()
     {
-        $services = Service::where('is_active' , 1)->latest()->get();
-        $offers = Offer::where('is_active' , 1)->latest()->get();
-        $reviews = Review::where('is_active' , 1)->latest()->get();
-        return view('site.about' , compact('services' , 'offers' , 'reviews'));
+        $goals = Goal::where('is_active' , 1 )->latest()->get();
+        $reviews = Review::where('is_active' , 1)->latest()->take(3)->get();
+        return view('site.about' , compact('reviews' , 'goals' ));
     }
 
     /**

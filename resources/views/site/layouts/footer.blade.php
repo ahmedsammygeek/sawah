@@ -10,25 +10,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <img src="img/logo-light.svg" alt="logo">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Sequi quidem sint impedit. Dolor, a ex.</p>
+                    <img src="{{ asset('site_assets/img/logo-light.svg') }}" alt="logo">
+                    <p> ينكن دائما التواصل معانا للاستفسار عن اى تريده.... </p>
                     <ul>
                         <li>
                             <i class='bx bx-location-plus' ></i>
-                            الشيخ زايد - المجاورة التانية
+                            {{ $data['settings']->address }}
                         </li>
                         <li>
                             <i class='bx bxl-whatsapp'></i>
-                            01099171659
+                            {{ $data['settings']->whatsapp }}
                         </li>
                         <li>
                             <i class='bx bx-phone'></i>
-                            01099171659
+                            {{ $data['settings']->mobile }}
                         </li>
                         <li>
                             <i class='bx bxl-gmail'></i>
-                            info@example.com
+                            {{ $data['settings']->email }}
                         </li>
                     </ul>
                 </div>
@@ -68,11 +67,11 @@
                     </div>
                     <div class="col-lg-6">
                         <ul class="social">
-                            <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
-                            <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
-                            <li><a href="#"><i class='bx bxl-linkedin'></i></a></li>
-                            <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
-                            <li><a href="#"><i class='bx bxl-snapchat'></i></a></li>
+                            <li><a href="{{ $data['settings']->facebook }}"><i class='bx bxl-facebook'></i></a></li>
+                            <li><a href="{{ $data['settings']->twitter }}"><i class='bx bxl-twitter'></i></a></li>
+                            <li><a href="{{ $data['settings']->youtube }}"><i class='bx bxl-youtube'></i></a></li>
+                            <li><a href="{{ $data['settings']->instagram }}"><i class='bx bxl-instagram'></i></a></li>
+                            <li><a href="{{ $data['settings']->snapchat }}"><i class='bx bxl-snapchat'></i></a></li>
                         </ul>
                     </div>
                 </div>
