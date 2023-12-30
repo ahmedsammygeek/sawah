@@ -110,7 +110,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <button><a href="listing.html">أكتشف المزيد</a></button>
+                <button><a href="{{ route('projects.index') }}">أكتشف المزيد</a></button>
             </div>
         </div>
     </div>
@@ -138,7 +138,7 @@
                             <a href="listing.html"> {{ $area->name }} </a>
                             <span> {{ $area->projects_count }} عقارات</span>
                         </div>
-                        <a href="listing.html"><i class='bx bx-chevrons-left'></i></a>
+                        <a href="{{ route('projects.index' , ['areas_ids[0]' => $area->id ] ) }}"><i class='bx bx-chevrons-left'></i></a>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <button><a href="listing.html">أكتشف المزيد</a></button>
+                <button><a href="{{ route('projects.index') }}">أكتشف المزيد</a></button>
             </div>
         </div>
     </div>
@@ -187,7 +187,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <button><a href="services.html">أكتشف المزيد</a></button>
+                <button><a href="{{ route('services.index') }}">أكتشف المزيد</a></button>
             </div>
         </div>
     </div>
