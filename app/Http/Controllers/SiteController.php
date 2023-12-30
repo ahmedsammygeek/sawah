@@ -51,8 +51,9 @@ class SiteController extends Controller
 
     public function show_project(Project $project)
     {
+        $projects = Project::where('area_id' , $project->area_id )->where('category_id' , $project->category_id )->orderByRaw("RAND()")->take(4)->get();
         $project->load(['category' , 'area' , 'images' ]);
-        return view('site.project' , compact('project') );
+        return view('site.project' , compact('project'  , 'projects' ) );
     }
 
     public function offers()
