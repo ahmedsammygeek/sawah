@@ -21,7 +21,7 @@ use App\Http\Controllers\Board\CategoryController;
 
 Route::get('test' , function(){
 
-	dd('done');
+	dd(Youtube::parseVidFromURL('https://www.youtube.com/watch?v=jC122TKkbWg'));
 });
 
 Route::group(
@@ -31,7 +31,8 @@ Route::group(
 	], function(){ 
 		Route::get('/', [SiteController::class , 'index' ] )->name('index');
 		Route::get('/about', [SiteController::class , 'about' ] )->name('about');
-		Route::get('/services', [SiteController::class , 'services' ] )->name('services');
+		Route::get('/services', [SiteController::class , 'services' ] )->name('services.index');
+		Route::get('/projects', [SiteController::class , 'projects' ] )->name('projects.index');
 		Route::get('/blog', [SiteController::class , 'blog' ] )->name('blog');
 		Route::get('/offers', [SiteController::class , 'offers' ] )->name('offers');
 		Route::get('/contact', [SiteController::class , 'contact' ] )->name('contact');

@@ -31,4 +31,10 @@ class Project extends Model
     {
         return $this->belongsTo(Area::class);
     }
+
+
+    public function urlForSite()
+    {
+        return route('projects.show' , $this->id.'-'.str_replace(' ', '-', $this->name) );
+    }
 }

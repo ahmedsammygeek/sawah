@@ -15,10 +15,10 @@
                         <a class="nav-link" href="{{ route('about') }}">ماذا عنا</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="listing.html">مشاريعنا</a>
+                        <a class="nav-link" href="{{ route('projects.index') }}">مشاريعنا</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('services') }}">خدماتنا</a>
+                        <a class="nav-link" href="{{ route('services.index') }}">خدماتنا</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pricing.html">الباقات والعروض</a>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('site_assets/css/main.css') }}">
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+     @livewireStyles
 </head>
 <body>
 
@@ -27,6 +28,13 @@
     @include('site.layouts.footer')
    
 
+     @livewireScripts
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <x-livewire-alert::scripts />
     <!-- scripts -->
     <script src="{{ asset('site_assets/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('site_assets/js/bootstrap.bundle.min.js') }}"></script>

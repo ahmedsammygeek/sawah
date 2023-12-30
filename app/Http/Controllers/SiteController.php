@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\Offer;
 use App\Models\Review;
 use App\Models\Project;
+use App\Models\Category;
 use App\Models\Area;
 use App\Models\Goal;
 use App\Http\Requests\Site\ContactUsRequest;
@@ -22,7 +23,8 @@ class SiteController extends Controller
         $reviews = Review::where('is_active' , 1)->latest()->get();
         $projects = Project::where('is_active' , 1 )->latest()->take(6)->get();
         $areas = Area::withCount('projects')->where('is_active' , 1 )->orderByRaw("RAND()")->take(6)->get();
-        return view('site.index' , compact('projects' , 'areas'  , 'services' , 'reviews' ) );
+        $categories = Category::where('is_active' , 1)->get();
+        return view('site.index' , compact('projects' , 'areas'  , 'services' , 'reviews' , 'categories' ) );
     }
 
     public function about()
@@ -38,6 +40,19 @@ class SiteController extends Controller
         $reviews = Review::where('is_active' , 1)->latest()->get();
         $services = Service::where('is_active' , 1)->latest()->get();
         return view('site.services'  , compact('services' , 'reviews'  ) );
+    }
+
+
+    public function projects()
+    {
+        $projects = Project::all();
+        return view('site.projects' , compact('projects') );
+    }
+
+    public function show_project(Project $project)
+    {
+        $project->load(['category' , 'area' , 'images' ]);
+        return view('site.project' , compact('project') );
     }
 
     public function offers()
@@ -71,13 +86,7 @@ class SiteController extends Controller
         return view('site.product' , compact('product'));
     }
     
-    public function show_project()
-    {
-        $offers = Offer::where('is_active' , 1)->latest()->get();
-        $reviews = Review::where('is_active' , 1)->latest()->get();
-        $projects = Project::where('is_active' , 1 )->latest()->get();
-        return view('site.project' ,  compact('projects' , 'offers' , 'reviews') );
-    }
+
 
     /**
      * Update the specified resource in storage.
