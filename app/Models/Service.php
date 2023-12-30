@@ -18,4 +18,9 @@ class Service extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function urlForSite()
+    {
+        return route('services.show' , $this->id.'-'.str_replace(' ', '-', $this->name) );
+    }
 }
