@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Board\Projects;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Alaouy\Youtube\Rules\ValidYoutubeVideo;
 class StoreProjectRequest extends FormRequest
 {
     /**
@@ -24,8 +24,22 @@ class StoreProjectRequest extends FormRequest
         return [
             'image' => 'required|image' , 
             'name_ar' => 'required' , 
-            'name_en' => 'required' , 
-            'active' => 'nullable' , 
+            'is_active' => 'nullable' , 
+            'category_id' => 'required' , 
+            'area_id' => 'required' , 
+            'address' => 'required' , 
+            'rooms' => 'required' , 
+            'bathrooms' => 'required' , 
+            'total_area' => 'required' , 
+            'price' => 'required' , 
+            'garage' => 'required' , 
+            'basement' => 'required' , 
+            'swimming_pool' => 'required' , 
+            'type' => 'required' , 
+            'youtube_link' => ['nullable'  , new ValidYoutubeVideo ] , 
+            'images' => 'nullable' , 
+            'images.*' => 'image' , 
+            'content' => 'required' , 
         ];
     }
 }

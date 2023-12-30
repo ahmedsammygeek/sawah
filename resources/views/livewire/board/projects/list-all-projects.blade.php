@@ -5,12 +5,12 @@
                 <thead>
                     <tr>
                         <th> # </th>
-                        <th>العنوان بالعربيه</th>
-                        <th>العنوان بالانجليزيه</th>
-                        <th>تاريخ الاضافه</th>
-                        <th>تم الاضافه بواسطه</th>
+                        <th> الصوره </th>
+                        <th> اسم المشروع </th>
+                        <th> التصنيف </th>
+                        <th> المنطقه </th>
+                        <th> السعر </th>
                         <th>حاله المشروع</th>
-
                         <th>خيارات</th>
                     </tr>
                 </thead>
@@ -21,10 +21,15 @@
                     @foreach ($projects as $project)
                     <tr>
                         <td> {{ $i++ }} </td>
+                        <td>
+                             <a class="avatar" data-fslightbox="gallery" href="{{ Storage::url('projects/'.$project->image) }}">
+                                <img  src="{{ Storage::url('projects/'.$project->image) }}" alt="">
+                            </a>
+                        </td>
                         <td> {{ $project->getTranslation('name' , 'ar') }} </td>
-                        <td> {{ $project->getTranslation('name' , 'en') }} </td>
-                        <td> {{ $project->created_at }} <span class="text-muted">{{ $project->created_at->diffForHumans() }}</span> </td>
-                        <td> {{ $project->user?->name }} </td>
+                        <td> {{ $project->category?->name }} </td>
+                        <td> {{ $project->area?->name }} </td>
+                        <td> {{ $project->price }} </td>
                         <td>
                             @switch($project->is_active)
                             @case(1)
@@ -84,6 +89,7 @@
 </div>
 
 @section('scripts')
+<script src="{{ asset('board_assets/dist/libs/fslightbox/index.js?1684106062') }}" defer></script>
 <script>
     $(function() {
 

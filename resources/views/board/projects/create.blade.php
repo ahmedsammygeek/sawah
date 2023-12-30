@@ -43,43 +43,209 @@
 						<h3 class="card-title text-white"> إضافه مشروع جديد </h3>
 					</div>
 					<div class="card-body">
-						<div class="mb-3">
-							<label class="form-label required"> صوره المشروع </label>
-							<div>
-								<input type="file" class="form-control @error('image') is-invalid @enderror " name='image'  >
-								@error('image')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
+
+						<div class="row">
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label class="form-label required"> العنوان بالعربيه </label>
+									<div>
+										<input type="text" class="form-control @error('name_ar') is-invalid @enderror " name='name_ar' value="{{ old('name_ar') }}" >
+										@error('name_ar')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label class="form-label required"> صوره المشروع </label>
+									<div>
+										<input type="file" class="form-control @error('image') is-invalid @enderror " name='image'  >
+										@error('image')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="mb-3">
+									<label class="form-label required"> التصنيف </label>
+									<div>
+										<select name="category_id" id="" class='form-control select' >
+											@foreach ($categories as $category)
+											<option value="{{ $category->id }}"> {{ $category->name }} </option>
+											@endforeach
+										</select>
+										@error('category_id')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-md-2">
+								<div class="mb-3">
+									<label class="form-label required"> المنطقه </label>
+									<div>
+										<select name="area_id" id="" class='form-control select' >
+											@foreach ($areas as $area)
+											<option value="{{ $area->id }}"> {{ $area->name }} </option>
+											@endforeach
+										</select>
+										@error('area_id')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="mb-3">
+									<label class="form-label required"> العنوان التصفيلى للمشروع </label>
+									<div>
+										<input type="text" class="form-control @error('address') is-invalid @enderror " name='address' value="{{ old('address') }}" >
+										@error('address')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="mb-3">
+									<label class="form-label required"> عدد الغرف </label>
+									<div>
+										<input type="number" class="form-control @error('rooms') is-invalid @enderror " name='rooms' value="{{ old('rooms') }}" >
+										@error('rooms')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="mb-3">
+									<label class="form-label required"> عدد الحمامات </label>
+									<div>
+										<input type="number" class="form-control @error('bathrooms') is-invalid @enderror " name='bathrooms' value="{{ old('bathrooms') }}" >
+										@error('bathrooms')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="mb-3">
+									<label class="form-label required"> المساجه الكليه </label>
+									<div>
+										<input type="text" class="form-control @error('total_area') is-invalid @enderror " name='total_area' value="{{ old('total_area') }}" >
+										@error('total_area')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="mb-3">
+									<label class="form-label required"> السعر </label>
+									<div>
+										<input type="number" class="form-control @error('price') is-invalid @enderror " name='price' value="{{ old('price') }}" >
+										@error('price')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<div class="mb-3">
+									<label class="form-label required"> الجراج </label>
+									<div>
+										<input type="number" class="form-control @error('garage') is-invalid @enderror " name='garage' value="{{ old('garage') }}" >
+										@error('garage')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="mb-3">
+									<label class="form-label required"> بدروم</label>
+									<div>
+										<input type="number" class="form-control @error('basement') is-invalid @enderror " name='basement' value="{{ old('basement') }}" >
+										@error('basement')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="mb-3">
+									<label class="form-label required"> حمام سباحه </label>
+									<div>
+										<input type="number" class="form-control @error('swimming_pool') is-invalid @enderror " name='swimming_pool' value="{{ old('swimming_pool') }}" >
+										@error('swimming_pool')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="mb-3">
+									<label class="form-label required"> ايجار & بيع </label>
+									<div>
+										<select name="type" class='form-control select' >
+											<option value="1"> ايجار </option>
+											<option value="2"> بيع </option>
+										</select>
+										@error('type')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label class="form-label "> رابط الفديو </label>
+									<div>
+										<input type="text" class="form-control @error('youtube_link') is-invalid @enderror " name='youtube_link' value="{{ old('youtube_link') }}" >
+										@error('youtube_link')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label class="form-label "> صور اضافيه </label>
+									<div>
+										<input type="file" multiple class="form-control @error('images') is-invalid @enderror " name='images[]' >
+										@error('images')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="mb-3">
+									<label class="form-label required">  تفاصيل المشروع </label>
+									<div>
+										<textarea name="content" id="" class="form-control" cols="30" rows="10"> {{ old('content') }} </textarea>
+										@error('content')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
 							</div>
 						</div>
-
-
-
-						<div class="mb-3">
-							<label class="form-label required"> العنوان بالعربيه </label>
-							<div>
-								<input type="text" class="form-control @error('name_ar') is-invalid @enderror " name='name_ar' value="{{ old('name_ar') }}" >
-								@error('name_ar')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
-
-						<div class="mb-3">
-							<label class="form-label required"> العنوان بالانجليزيه </label>
-							<div>
-								<input type="text" class="form-control @error('name_en') is-invalid @enderror " name='name_en' value="{{ old('name_en') }}" >
-								@error('name_en')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
-
 						<div class="mb-3">
 							<label class="form-label"> خصائص </label>
 							<div>
 								<label class="form-check">
-									<input class="form-check-input" name='active' type="checkbox" checked>
+									<input class="form-check-input" name='is_active' type="checkbox" checked>
 									<span class="form-check-label"> السماح بالعرض </span>
 								</label>
 							</div>

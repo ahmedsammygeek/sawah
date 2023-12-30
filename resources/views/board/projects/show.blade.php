@@ -63,19 +63,84 @@
 									<th> تم الاضافه بواسطه </th>
 									<td> {{ $project->user?->name }}  </td>
 								</tr>
+
 								<tr>
 									<th> العنوان بالعربيه </th>
 									<td> {{ $project->getTranslation('name' , 'ar') }}  </td>
 								</tr>
-
 								<tr>
-									<th> العنوان بالانجليزيه </th>
-									<td> {{ $project->getTranslation('name' , 'en') }}  </td>
+									<th> تفاصيل المشروع </th>
+									<td> {{ $project->getTranslation('content' , 'ar') }}  </td>
 								</tr>
 
 								<tr>
+									<th> التصنيف </th>
+									<td> {{ $project->category?->name }}  </td>
+								</tr>
+								<tr>
+									<th> المنطقه </th>
+									<td> {{ $project->area?->name }}  </td>
+								</tr>
+
+								<tr>
+									<th>  النوع </th>
+									<td> 
+										@switch($project->type)
+										@case(1)
+										<span class="badge bg-success"> ايجار </span>
+										@break
+										@case(2)
+										<span class="badge bg-info"> بيع </span>
+										@break
+										@endswitch
+									</td>
+								</tr>
+
+								<tr>
+									<th> العنوان التفصيلى </th>
+									<td> {{ $project->address }}  </td>
+								</tr>
+								<tr>
+									<th> الغرف </th>
+									<td> {{ $project->rooms }}  </td>
+								</tr>
+								<tr>
+									<th> الحمامات </th>
+									<td> {{ $project->bathrooms }}  </td>
+								</tr>
+								<tr>
+									<th> السعر </th>
+									<td> {{ $project->price }}  </td>
+								</tr>
+								<tr>
+									<th> الماسحه الكليه </th>
+									<td> {{ $project->total_area }}  </td>
+								</tr>
+								<tr>
+									<th> الجراج </th>
+									<td> {{ $project->garage }}  </td>
+								</tr>
+								<tr>
+									<th> بدروم </th>
+									<td> {{ $project->basement }}  </td>
+								</tr>
+								<tr>
+									<th> حمام السباحه </th>
+									<td> {{ $project->swimming_pool }}  </td>
+								</tr>
+								<tr>
+									<th> رابط فديو يوتيوب </th>
+									<td> {{ $project->youtube_link }}  </td>
+								</tr>
+
+
+								<tr>
 									<th> صوره المشروع الرئيسيه </th>
-									<td> <img class=' img-thumbnail' src="{{ Storage::url('projects/'.$project->image) }}" alt=""> </td>
+									<td> 
+										<a class="avatar" data-fslightbox="gallery" href="{{ Storage::url('projects/'.$project->image) }}">
+											<img  src="{{ Storage::url('projects/'.$project->image) }}" alt="">
+										</a>
+									</td>
 								</tr>								
 							</tbody>
 						</table>
@@ -83,7 +148,51 @@
 				</div>
 			</div>
 
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title"> صور المشروع الاضافيه </h3>
+					</div>
+					<div class="card-body">
+						<div id="carousel-indicators-thumb" class="carousel slide carousel-fade" data-bs-ride="carousel">
+							<div class="carousel-indicators carousel-indicators-thumb">
+								
+
+								@php
+								$i = 0;
+								@endphp
+								@foreach ($project->images as $project_image)
+								<button type="button" data-bs-target="#carousel-indicators-thumb" data-bs-slide-to="{{ $i }}" class=" ratio ratio-4x3  {{ $i == 0 ? 'active' : '' }}" style="background-image: url({{ Storage::url('projects/'.$project_image->image) }})">
+									
+								</button>
+								@php
+									$i++;
+								@endphp
+								@endforeach
+							</div>
+							<div class="carousel-inner">
+								@php
+								$i = 1;
+								@endphp
+								@foreach ($project->images as $project_image)
+								<div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
+									<img class="d-block w-100" alt="" src="{{ Storage::url('projects/'.$project_image->image) }}">
+								</div>
+								@php
+									$i++;
+								@endphp
+								@endforeach
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('scripts')
+<script src="{{ asset('board_assets/dist/libs/fslightbox/index.js?1684106062') }}" defer></script>
 @endsection

@@ -20,7 +20,7 @@ class ListAllProjects extends Component
 
     public function render()
     {
-        $projects = Project::with('user')->get();
+        $projects = Project::with(['category' , 'area'  ])->latest()->get();
         return view('livewire.board.projects.list-all-projects' , compact('projects'));
     }
 }
