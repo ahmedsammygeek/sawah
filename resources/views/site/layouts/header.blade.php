@@ -24,7 +24,7 @@
                         <a class="nav-link" href="pricing.html">الباقات والعروض</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blog') }}">المدونة</a>
+                        <a class="nav-link" href="{{ route('topics.index') }}">المدونة</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}">تواصل بنا</a>

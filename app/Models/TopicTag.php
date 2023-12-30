@@ -13,7 +13,7 @@ class TopicTag extends Model
 
     public function tag()
     {
-        return $this->belongsTo(Tag::class);
+        return $this->belongsTo(Tag::class  , 'tag_id');
     }
 
     public function user()

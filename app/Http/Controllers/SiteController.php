@@ -11,6 +11,8 @@ use App\Models\Project;
 use App\Models\Category;
 use App\Models\Area;
 use App\Models\Goal;
+use App\Models\Topic;
+use App\Models\Tag;
 use App\Http\Requests\Site\ContactUsRequest;
 use Mail;
 use App\Mail\ContactUsMail;
@@ -54,6 +56,20 @@ class SiteController extends Controller
         $projects = Project::where('area_id' , $project->area_id )->where('category_id' , $project->category_id )->orderByRaw("RAND()")->take(4)->get();
         $project->load(['category' , 'area' , 'images' ]);
         return view('site.project' , compact('project'  , 'projects' ) );
+    }
+
+    public function topics()
+    {
+        $topics = Topic::where('is_active' , 1 )->latest()->get();
+        return view('site.topics' , compact('topics') );
+    }
+
+    public function show_topic(Topic $topic)
+    {
+        $topics = Topic::where('is_active' , 1 )->whereNotIn('id' , [$topic->id] )->latest()->take(5)->get();
+        $topic->load(['user']);
+        $tags = Tag::where('is_active' , 1 )->get();
+        return view('site.topic' , compact('topic' , 'topics' , 'tags' ) );
     }
 
     public function offers()

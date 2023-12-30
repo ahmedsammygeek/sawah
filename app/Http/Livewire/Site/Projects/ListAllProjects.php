@@ -9,7 +9,9 @@ use App\Models\Project;
 use Livewire\WithPagination;
 class ListAllProjects extends Component
 {   
-        use WithPagination;
+    use WithPagination;
+
+    protected $queryString = ['search' , 'categories_ids' , 'areas_ids' ];
 
     public $areas;
     public $categories;
@@ -21,8 +23,8 @@ class ListAllProjects extends Component
 
     public function mount()
     {
-        $this->areas = Area::all();
-        $this->categories = Category::all();
+        $this->areas = Area::where('is_active'  , 1)->get();
+        $this->categories = Category::where('is_active'  , 1)->get();
     }
 
     public function resetFilters()
@@ -50,7 +52,7 @@ class ListAllProjects extends Component
         ->when($this->categories_ids , function($query){
             $query->whereIn('category_id' , $this->categories_ids );
         })
-        ->latest()->paginate(2);
+        ->latest()->paginate(10);
         return view('livewire.site.projects.list-all-projects' , compact('projects') );
     }
 }

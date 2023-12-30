@@ -33,10 +33,10 @@ Route::group(
 		Route::get('/about', [SiteController::class , 'about' ] )->name('about');
 		Route::get('/services', [SiteController::class , 'services' ] )->name('services.index');
 		Route::get('/projects', [SiteController::class , 'projects' ] )->name('projects.index');
-		Route::get('/blog', [SiteController::class , 'blog' ] )->name('blog');
+		Route::get('/blog', [SiteController::class , 'topics' ] )->name('topics.index');
 		Route::get('/offers', [SiteController::class , 'offers' ] )->name('offers');
 		Route::get('/contact', [SiteController::class , 'contact' ] )->name('contact');
-		Route::get('/products/{product}', [SiteController::class , 'show_product' ] )->name('products.show');
+		Route::get('/blog/{topic}', [SiteController::class , 'show_topic' ] )->name('topics.show');
 		Route::get('/services/{service}', [SiteController::class , 'show_service' ] )->name('services.show');
 		Route::get('/projects/{project}', [SiteController::class , 'show_project' ] )->name('projects.show');
 		Route::get('/terms', [SiteController::class , 'terms' ] )->name('terms');

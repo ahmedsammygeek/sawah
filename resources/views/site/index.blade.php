@@ -12,15 +12,14 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form role="form">
+                <form role="form" action="{{ route('projects.index') }}" >
                     <div class="key">
                         <i class='bx bx-search'></i>
-                        <input type="text" name="keywords" placeholder="أدخل كلمة البحث هنا">
+                        <input type="text" name="search" placeholder="أدخل كلمة البحث هنا">
                     </div> 
                     <div class="location">
                         <i class='bx bx-location-plus'></i>
-                        <select name='area' >
-                            <option value=""> المنطقه </option>
+                        <select name='areas_ids[]' >
                             @foreach ($areas as $area)
                             <option value="{{ $area->id }}" > {{ $area->name }} </option>
                             @endforeach
@@ -28,8 +27,7 @@
                     </div>
                     <div class="select">
                         <i class='bx bx-category'></i>
-                        <select name="category" >
-                            <option value=""> التصنيف </option>
+                        <select name="categories_ids[]" >
                             @foreach ($categories as $category)
                             <option value="{{ $category->id }}" > {{ $category->name }} </option>
                             @endforeach
@@ -37,7 +35,7 @@
                     </div>
                     <div class="person">
                         <i class='bx bx-male'></i>
-                        <select name="persons" >
+                        <select  >
                             <option> عدد الافراد </option>
                             <option>2</option>
                             <option>3</option>
@@ -102,7 +100,7 @@
                                 <i class='bx bx-location-plus'></i>
                                 {{ $project->address }}
                             </li>
-                            <button><a href="listing-details.html">view</a></button>
+                            <button><a href="{{ $project->urlForSite() }}"> عرض </a></button>
                         </div>
                     </div>
                 </div>

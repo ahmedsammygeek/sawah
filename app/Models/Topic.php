@@ -19,4 +19,9 @@ class Topic extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function urlForSite()
+    {
+        return route('topics.show' , $this->id.'-'.str_replace(' ', '-', $this->title) );
+    }
 }
