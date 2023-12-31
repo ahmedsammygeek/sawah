@@ -77,9 +77,9 @@
                         <div class="top">
                             <div class="name">
                                 @if ($project->type == 1 )
-                                <span>للبيع</span>
+                                <span>للايجار</span>
                                 @else
-                                <span> للايجار </span>
+                                <span> بيع </span>
                                 @endif
                                 <a href="listing-details.html"> {{ $project->name }} </a>
                             </div>
