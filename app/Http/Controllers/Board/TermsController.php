@@ -28,7 +28,6 @@ class TermsController extends Controller
     {
         $settings = Setting::first();
         $settings->setTranslation('terms' , 'ar' , $request->terms_ar );
-        $settings->setTranslation('terms' , 'en' , $request->terms_en );
         $settings->save();
         return redirect()->back()->with('success' , 'تم تعديل محتوى الشروط و الاحكام بنجاح' );
     }

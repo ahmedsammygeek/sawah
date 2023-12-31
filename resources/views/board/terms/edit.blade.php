@@ -41,24 +41,12 @@
 						</div>
 
 
-						<div class="mb-3">
-							<label class="form-label required"> المحتوى  بالانجليزيه </label>
-							<div>
-								<textarea  class="form-control @error('terms_en') is-invalid @enderror " name='terms_en' id="tinymce-mytextarea" cols="30" rows="10"> {{ $settings->getTranslation('terms'  , 'en' ) }} </textarea>
-								@error('terms_en')
-								<small class="form-hint text-danger"> {{ $message }} </small>
-								@enderror
-							</div>
-						</div>
-
-
-
 
 
 					</div>
 					<div class="card-footer text-end">
 						<div class='d-flex' >
-							<a href="{{ route('board.services.index') }}" class="btn btn-link"> تراجع </a>
+							<a href="{{ route('board.terms.edit') }}" class="btn btn-link"> تراجع </a>
 							<button type="submit" class="btn btn-primary ms-auto">تعديل</button>
 						</div>
 					</div>

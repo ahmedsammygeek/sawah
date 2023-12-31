@@ -20,9 +20,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('services.index') }}">خدماتنا</a>
                     </li>
-                    <li class="nav-item">
+{{--                     <li class="nav-item">
                         <a class="nav-link" href="pricing.html">الباقات والعروض</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('topics.index') }}">المدونة</a>
                     </li>

@@ -75,7 +75,7 @@
                                 @else
                                 <span> للايجار </span>
                                 @endif
-                                <a href="listing-details.html"> {{ $project->name }} </a>
+                                <a href="{{ $project->urlForSite() }}"> {{ $project->name }} </a>
                             </div>
                             <h4> {{ $project->price }} $</h4>
                         </div>
@@ -135,7 +135,7 @@
                     </div>
                     <div class="find-text">
                         <div class="find-text-left">
-                            <a href="listing.html"> {{ $area->name }} </a>
+                            <a href="{{ route('projects.index' , ['areas_ids[0]' => $area->id ] ) }}"> {{ $area->name }} </a>
                             <span> {{ $area->projects_count }} عقارات</span>
                         </div>
                         <a href="{{ route('projects.index' , ['areas_ids[0]' => $area->id ] ) }}"><i class='bx bx-chevrons-left'></i></a>

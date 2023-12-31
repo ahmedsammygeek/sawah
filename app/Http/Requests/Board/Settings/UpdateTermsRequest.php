@@ -23,7 +23,6 @@ class UpdateTermsRequest extends FormRequest
     {
         return [
             'terms_ar' => 'required' , 
-            'terms_en' => 'required' , 
         ];
     }
 }

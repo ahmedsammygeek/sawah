@@ -114,11 +114,8 @@
                 </div>
                 @endforeach
                 @else
-                <div class="alert alert-warning d-flex align-items-center" role="alert">
-                    <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"></use></svg>
-                    <div>
-                        لا يوجد نتائع تطابق بحثك
-                    </div>
+                <div class="alert alert-warning text-center mt-4" role="alert">
+                   لا يوجد نتائج تطابق بحثك
                 </div>
                 @endif
 

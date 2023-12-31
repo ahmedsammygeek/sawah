@@ -272,24 +272,33 @@ switch (request()->segment(2)) {
 </a>
 </li>
 
-<li class="nav-item {{ $about }}">
-  <a class="nav-link" href="{{ route('board.about.edit') }}" >
-    <span class="nav-link-icon d-md-none d-lg-inline-block">
-     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-       <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
-       <path d="M12 9h.01"></path>
-       <path d="M11 12h1v4h1"></path>
-     </svg>
-   </span>
-   <span class="nav-link-title">
-    من نحن
-  </span>
-</a>
-</li>
+
+<li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/lifebuoy -->
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M15 15l3.35 3.35"></path><path d="M9 15l-3.35 3.35"></path><path d="M5.65 5.65l3.35 3.35"></path><path d="M18.35 5.65l-3.35 3.35"></path></svg>
+                        </span>
+                        <span class="nav-link-title">
+                          صفحات اخرى
+                        </span>
+                      </a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('board.about.edit') }}" target="_blank" rel="noopener">
+                         من نحن 
+                        </a>
+                        <a class="dropdown-item" href="{{ route('board.goals.index') }}" target="_blank" rel="noopener">
+                          الاهداف
+                        </a>
+                        <a class="dropdown-item" href="{{ route('board.terms.edit') }}">
+                          سياسه الموقع
+                        </a>
+                        
+                       
+                      </div>
+                    </li>
 
 
-<li class="nav-item {{ $goals }}">
+{{-- <li class="nav-item {{ $goals }}">
   <a class="nav-link" href="{{ route('board.goals.index') }}" >
     <span class="nav-link-icon d-md-none d-lg-inline-block">
      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hand-stop" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -304,7 +313,7 @@ switch (request()->segment(2)) {
     الاهداف
   </span>
 </a>
-</li>
+</li> --}}
 
 </ul>
 

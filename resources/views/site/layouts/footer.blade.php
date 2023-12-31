@@ -37,7 +37,7 @@
                     <li><a href="{{ route('about') }}">ماذا عنا</a></li>
                     <li><a href="{{ route('topics.index') }}">المدونة</a></li>
                     <li><a href="{{ route('contact') }}">تواصل معنا</a></li>
-                    <li><a href="privacy-policy.html">سياسة الموقع</a></li>
+                    <li><a href="{{ route('terms') }}">سياسة الموقع</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6">
