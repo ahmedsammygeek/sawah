@@ -39,6 +39,8 @@ class StoreProjectRequest extends FormRequest
             'youtube_link' => ['nullable'  , new ValidYoutubeVideo ] , 
             'images' => 'nullable' , 
             'images.*' => 'image' , 
+            'slides' => 'nullable' , 
+            'slides.*' => 'image' , 
             'content' => 'required' , 
         ];
     }

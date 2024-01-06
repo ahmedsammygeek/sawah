@@ -7,7 +7,7 @@
         @php
         $i = 1;
         @endphp
-        @foreach ($project->images as $project_image)
+        @foreach ($project->images()->where('type' , 'slide' )->get() as $project_image)
         <div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
             <img src="{{ Storage::url('projects/'.$project_image->image) }}" class="d-block w-100" alt="item">
         </div>
@@ -132,7 +132,7 @@
                     </h2>
                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            @foreach ($project->images as $project_image)
+                            @foreach ($project->images()->where('type' , 'image' )->get() as $project_image)
                             <div class="gallery-item">
                                 <img src="{{ Storage::url('projects/'.$project_image->image) }}" alt="gallery-item">
                             </div>

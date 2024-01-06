@@ -231,6 +231,17 @@
 							</div>
 							<div class="col-md-12">
 								<div class="mb-3">
+									<label class="form-label "> صور slider </label>
+									<div>
+										<input type="file" multiple class="form-control @error('slides') is-invalid @enderror " name='slides[]' >
+										@error('slides')
+										<small class="form-hint text-danger"> {{ $message }} </small>
+										@enderror
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="mb-3">
 									<label class="form-label required">  تفاصيل المشروع </label>
 									<div>
 										<textarea name="content" id="" class="form-control" cols="30" rows="10"> {{ old('content') }} </textarea>

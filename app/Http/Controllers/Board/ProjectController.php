@@ -61,6 +61,20 @@ class ProjectController extends Controller
                 $project_images[] = new ProjectImage([
                     'user_id' => Auth::id() , 
                     'image' => basename($request->file('images.'.$i)->store('projects')) ,
+                    'type' => 'image'
+                ]);
+            }
+
+            $project->images()->saveMany($project_images);
+        }
+
+        if ($request->hasFile('slides')) {
+            $project_images = [];
+            for ($i=0; $i <count($request->file('slides')) ; $i++) { 
+                $project_images[] = new ProjectImage([
+                    'user_id' => Auth::id() , 
+                    'image' => basename($request->file('slides.'.$i)->store('projects')) ,
+                    'type' => 'slide'
                 ]);
             }
 
@@ -120,6 +134,19 @@ class ProjectController extends Controller
                 $project_images[] = new ProjectImage([
                     'user_id' => Auth::id() , 
                     'image' => basename($request->file('images.'.$i)->store('projects')) ,
+                ]);
+            }
+
+            $project->images()->saveMany($project_images);
+        }
+
+        if ($request->hasFile('slides')) {
+            $project_images = [];
+            for ($i=0; $i <count($request->file('slides')) ; $i++) { 
+                $project_images[] = new ProjectImage([
+                    'user_id' => Auth::id() , 
+                    'image' => basename($request->file('slides.'.$i)->store('projects')) ,
+                    'type' => 'slide'
                 ]);
             }
 
