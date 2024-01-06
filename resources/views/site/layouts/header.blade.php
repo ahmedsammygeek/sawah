@@ -27,7 +27,7 @@
                         <a class="nav-link" href="{{ route('topics.index') }}">المدونة</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contact') }}">تواصل بنا</a>
+                        <a class="nav-link" href="{{ route('contact') }}">تواصل معنا</a>
                     </li>
                 </ul>
             </div>
