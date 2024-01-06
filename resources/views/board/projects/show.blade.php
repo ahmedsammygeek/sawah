@@ -161,7 +161,7 @@
 								@php
 								$i = 0;
 								@endphp
-								@foreach ($project->images as $project_image)
+								@foreach ($project->images()->where('type' , 'image' )->get() as $project_image)
 								<button type="button" data-bs-target="#carousel-indicators-thumb" data-bs-slide-to="{{ $i }}" class=" ratio ratio-4x3  {{ $i == 0 ? 'active' : '' }}" style="background-image: url({{ Storage::url('projects/'.$project_image->image) }})">
 									
 								</button>
@@ -174,7 +174,48 @@
 								@php
 								$i = 1;
 								@endphp
-								@foreach ($project->images as $project_image)
+								@foreach ($project->images()->where('type' , 'image' )->get() as $project_image)
+								<div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
+									<img class="d-block w-100" alt="" src="{{ Storage::url('projects/'.$project_image->image) }}">
+								</div>
+								@php
+									$i++;
+								@endphp
+								@endforeach
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title"> صور slider </h3>
+					</div>
+					<div class="card-body">
+						<div id="carousel-indicators-thumb" class="carousel slide carousel-fade" data-bs-ride="carousel">
+							<div class="carousel-indicators carousel-indicators-thumb">
+								
+
+								@php
+								$i = 0;
+								@endphp
+								@foreach ($project->images()->where('type' , 'slide' )->get() as $project_image)
+								<button type="button" data-bs-target="#carousel-indicators-thumb" data-bs-slide-to="{{ $i }}" class=" ratio ratio-4x3  {{ $i == 0 ? 'active' : '' }}" style="background-image: url({{ Storage::url('projects/'.$project_image->image) }})">
+									
+								</button>
+								@php
+									$i++;
+								@endphp
+								@endforeach
+							</div>
+							<div class="carousel-inner">
+								@php
+								$i = 1;
+								@endphp
+								@foreach ($project->images()->where('type' , 'slide' )->get() as $project_image)
 								<div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
 									<img class="d-block w-100" alt="" src="{{ Storage::url('projects/'.$project_image->image) }}">
 								</div>
