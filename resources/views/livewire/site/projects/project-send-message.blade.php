@@ -27,7 +27,7 @@
             <button type="submit">ارسال</button>
             <span>أو</span>
             <div class="whatsapp">
-                <a href="https://api.whatsapp.com/send?phone=201102953662" target="-blank">
+                <a href="https://wa.me/+2{{ $data['settings']->whatsapp }}?text=ارغب فى  الاستفسار عن مشروع : {{ $project->name }} " target="-blank">
                     تواصل عن طريق الواتساب
                 </a>
             </div>
