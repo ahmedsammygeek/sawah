@@ -10,7 +10,7 @@
             </div>
             <div class="col-lg-6">
                 <label> رقم الموبيل <span>*</span></label>
-                <input type="text" wire:model='phone' placeholder="البريد الموبيل">
+                <input type="text" wire:model='phone' placeholder=" رقم الموبيل">
                  @error('phone')
                 <p class='text-danger' > {{ $message }} </p>
                 @enderror
