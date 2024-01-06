@@ -24,7 +24,7 @@
                 {!!  $service->content !!}
                 <h2>لطلب الخدمة</h2>
                 <button> 
-                    <a href="https://wa.me/+2{{ $data['settings']->whatsapp }}?text=ارغب فى  الاستفسار عن الخدمه : {{ $service->name }} " target="-blank">
+                    <a href="https://wa.me/{{ $data['settings']->whatsapp }}?text=ارغب فى  الاستفسار عن الخدمه : {{ $service->name }} " target="-blank">
                         تواصل عن طريق الواتساب
                     </a>
                 </button>
