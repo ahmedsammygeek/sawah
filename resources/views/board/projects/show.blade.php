@@ -87,10 +87,10 @@
 									<td> 
 										@switch($project->type)
 										@case(1)
-										<span class="badge bg-success"> ايجار </span>
+										<span class="badge bg-success"> للايجار </span>
 										@break
 										@case(2)
-										<span class="badge bg-info"> بيع </span>
+										<span class="badge bg-info"> للبيع </span>
 										@break
 										@endswitch
 									</td>
