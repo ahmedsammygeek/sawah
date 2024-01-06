@@ -29,9 +29,9 @@
             <div class="col-lg-8">
                 <div class="item-details-box">
                     @if ($project->type == 1 )
-                    <span>للبيع</span>
+                    <span> للايجار</span>
                     @else
-                    <span> للايجار </span>
+                    <span> للبيع </span>
                     @endif
                     <h3>{{ $project->name }}</h3>
                     <li class="location">
