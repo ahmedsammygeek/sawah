@@ -1,7 +1,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{ asset('site_assets/img/logo-dark.svg') }}" alt="logo">
+                <img src="{{ Storage::url('settings/'.$data['settings']->logo) }}" alt="logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class='bx bx-menu'></i>

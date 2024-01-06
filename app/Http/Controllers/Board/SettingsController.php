@@ -37,6 +37,9 @@ class SettingsController extends Controller
         $settings->instagram = $request->instagram;
         $settings->whatsapp = $request->whatsapp;
         $settings->snap_chat = $request->snap_chat;
+        if ($request->hasFile('logo')) {
+            $settings->logo = basename($request->file('logo')->store('settings'));
+        }
         $settings->save();
         return back()->with('success' , 'تم تعديل الاعدادات بنجاح' );
     }

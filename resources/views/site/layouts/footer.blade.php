@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6">
-                <img src="{{ asset('site_assets/img/logo-light.svg') }}" alt="logo">
+                <img src="{{ Storage::url('settings/'.$data['settings']->logo) }}" alt="logo">
                 <p> ينكن دائما التواصل معانا للاستفسار عن اى تريده.... </p>
                 <ul>
                     <li>

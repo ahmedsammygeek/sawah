@@ -21,13 +21,22 @@
 	<div class="container-xl">
 		<div class="row row-deck row-cards">
 			<div class="col-md-12">
-				<form class="card" method='POST' action='{{ route('board.settings.update') }}' >
+				<form class="card" method='POST' action='{{ route('board.settings.update') }}' enctype="multipart/form-data" >
 					@csrf
 					@method('PATCH')
 					<div class="card-header bg-primary">
 						<h3 class="card-title text-white"> تعديل الاعدادات </h3>
 					</div>
 					<div class="card-body">
+						<div class="mb-3">
+							<label class="form-label "> لوجو الموقع </label>
+							<div>
+								<input type="file" class="form-control @error('logo') is-invalid @enderror " name='logo'  >
+								@error('logo')
+								<small class="form-hint text-danger"> {{ $message }} </small>
+								@enderror
+							</div>
+						</div>
 						<div class="mb-3">
 							<label class="form-label required"> رقم التواصل </label>
 							<div>
@@ -144,6 +153,13 @@
 								@error('snap_chat')
 								<small class="form-hint text-danger"> {{ $message }} </small>
 								@enderror
+							</div>
+						</div>
+
+						<div class="mb-3">
+							<label class="form-label required">  الشعار الحالى </label>
+							<div>
+								<img src="{{ Storage::url('settings/'.$settings->logo) }}" alt="">
 							</div>
 						</div>
 					</div>

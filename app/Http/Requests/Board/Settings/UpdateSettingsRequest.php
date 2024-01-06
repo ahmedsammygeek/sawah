@@ -33,6 +33,7 @@ class UpdateSettingsRequest extends FormRequest
             'instagram' => 'required|url' , 
             'working_hours_ar' => 'required' , 
             'snap_chat' => 'required' , 
+            'logo' => 'nullable|image'
         ];
     }
 }
