@@ -18,10 +18,22 @@ use App\Http\Controllers\Board\TagController;
 use App\Http\Controllers\Board\TopicController;
 use App\Http\Controllers\Board\GoalController;
 use App\Http\Controllers\Board\CategoryController;
+use App\Http\Controllers\Board\ProjectReservationController;
 
 Route::get('test' , function(){
 
-	dd(Youtube::parseVidFromURL('https://www.youtube.com/watch?v=jC122TKkbWg'));
+
+	$checkin_date = '2024-01-05';
+	$checkout_date = '2024-01-07';
+
+
+
+	$reservedCount = App\Models\ProjectReservation::where('project_id' , 17 )
+	->whereDate('start_date',  '<=', $checkout_date )
+	->whereDate('end_date',  '>=', $checkin_date)
+	->count();
+
+	dd($reservedCount);
 });
 
 Route::group(
@@ -62,6 +74,7 @@ Route::group(['prefix' => 'Board' , 'as' => 'board.' , 'middleware' => 'admin' ]
 	Route::resource('offers', OfferController::class );
 	Route::resource('products', ProductController::class );
 	Route::resource('projects', ProjectController::class );
+	Route::resource('projects.reservations', ProjectReservationController::class );
 
 	Route::get('settings/edit'  , [SettingsController::class , 'edit'] )->name('settings.edit'); // done
 	Route::patch('settings'  , [SettingsController::class , 'update'] )->name('settings.update'); // done
